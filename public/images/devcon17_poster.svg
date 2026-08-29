@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05081c"/>
+      <stop offset="40%" stop-color="#0c1236"/>
+      <stop offset="80%" stop-color="#181548"/>
+      <stop offset="100%" stop-color="#2a1240"/>
+    </linearGradient>
+
+    <linearGradient id="glowSky" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.6"/>
+      <stop offset="35%" stop-color="#8b5cf6" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#06b6d4" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="goldTower" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark Cosmic Horizon Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#glowSky)"/>
+
+  <!-- Star Constellations -->
+  <g opacity="0.65" filter="url(#starGlow)">
+    <circle cx="120" cy="80" r="1.5" fill="#fff"/>
+    <circle cx="280" cy="110" r="2" fill="#38bdf8"/>
+    <circle cx="450" cy="60" r="1" fill="#fff"/>
+    <circle cx="680" cy="90" r="2.5" fill="#a78bfa"/>
+    <circle cx="730" cy="180" r="1.5" fill="#fff"/>
+    <line x1="120" y1="80" x2="280" y2="110" stroke="rgba(56,189,248,0.3)" stroke-width="0.8"/>
+    <line x1="280" y1="110" x2="450" y2="60" stroke="rgba(167,139,250,0.3)" stroke-width="0.8"/>
+    <line x1="450" y1="60" x2="680" y2="90" stroke="rgba(56,189,248,0.3)" stroke-width="0.8"/>
+  </g>
+
+  <!-- City Skyline Silhouette -->
+  <path d="M0,600 L0,480 L40,480 L40,510 L90,510 L90,440 L130,440 L130,530 L180,530 L180,420 L230,420 L230,550 L340,550 L340,380 L365,340 L390,380 L390,550 L450,550 L450,450 L520,450 L520,530 L600,530 L600,430 L670,430 L670,500 L730,500 L730,460 L800,460 L800,600 Z" fill="#040614" opacity="0.85"/>
+
+  <!-- Golden Manila Monument Silhouette (Luneta Obelisk) -->
+  <g filter="url(#glow)">
+    <!-- Base -->
+    <path d="M350,550 L410,550 L400,490 L360,490 Z" fill="url(#goldTower)"/>
+    <!-- Shaft -->
+    <path d="M365,490 L395,490 L388,240 L372,240 Z" fill="url(#goldTower)"/>
+    <!-- Obelisk Tip -->
+    <path d="M372,240 L388,240 L380,190 Z" fill="#fef08a"/>
+    <!-- Glowing Beacon Beam -->
+    <polygon points="380,190 350,0 410,0" fill="rgba(254, 240, 138, 0.15)"/>
+  </g>
+
+  <!-- DEVCON 17 Text & Logo Overlay -->
+  <g transform="translate(60, 100)">
+    <!-- Cosmic Sparkle Logo -->
+    <g filter="url(#glow)" transform="translate(0, -30)">
+      <polygon points="25,0 30,18 48,23 30,28 25,46 20,28 2,23 20,18" fill="#38bdf8"/>
+      <circle cx="25" cy="23" r="4" fill="#fff"/>
+    </g>
+
+    <text x="60" y="-8" font-family="'Outfit', sans-serif" font-weight="900" font-size="42" fill="#ffffff" letter-spacing="2">DEVCON<tspan fill="#38bdf8">17</tspan></text>
+    <text x="60" y="24" font-family="'Outfit', sans-serif" font-weight="700" font-size="20" fill="#a78bfa" letter-spacing="6">PHILIPPINES</text>
+
+    <rect x="0" y="55" width="280" height="2" fill="url(#goldTower)"/>
+
+    <text x="0" y="100" font-family="'Outfit', sans-serif" font-weight="800" font-size="26" fill="#ffffff" letter-spacing="1">EMPOWERING DEVELOPERS,</text>
+    <text x="0" y="132" font-family="'Outfit', sans-serif" font-weight="800" font-size="26" fill="#38bdf8" letter-spacing="1">BUILDING THE FUTURE.</text>
+  </g>
+</svg>

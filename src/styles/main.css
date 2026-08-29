@@ -1,0 +1,406 @@
+/* ==========================================================================
+   DEVCON17 — MASTERCLASS ANIMATED DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Colors - Deep Midnight Sky Palette */
+  --space-dark-0: #02030d;
+  --space-dark-1: #070b24;
+  --space-dark-2: #0f153a;
+  --space-dark-3: #192054;
+
+  /* Dream & Starlight Cosmic Theme Palette */
+  --purple-royal: #8b5cf6;
+  --purple-glow: #a78bfa;
+  --purple-deep: #6d28d9;
+  --cyan-glow: #38bdf8;
+  --cyan-light: #7dd3fc;
+  --blue-electric: #3b82f6;
+  --blue-deep: #1d4ed8;
+  --blue-accent: #60a5fa;
+  --pink-glow: #f472b6;
+  --pink-deep: #be123c;
+  --gold-glow: #fef08a;
+
+  /* Text Colors — High Contrast Starlight Palette */
+  --text-pure: #ffffff;
+  --text-main: #ffffff;
+  --text-muted: #e2e8f0;
+  --text-dim: #93c5fd;
+
+  /* Glassmorphism System */
+  --glass-bg: rgba(7, 14, 42, 0.65);
+  --glass-bg-hover: rgba(12, 22, 60, 0.8);
+  --glass-border: rgba(56, 189, 248, 0.35);
+  --glass-border-hover: rgba(56, 189, 248, 0.7);
+  --glass-blur: blur(28px);
+
+  /* Fonts */
+  --font-title: 'Outfit', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+
+  /* Easing & Timing */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-fast: 0.2s var(--ease-smooth);
+  --trans-medium: 0.4s var(--ease-smooth);
+}
+
+/* Reset & Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--space-dark-0);
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  line-height: 1.6;
+  background: var(--space-dark-0);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--space-dark-0);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--purple-royal), var(--cyan-glow));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--purple-glow), var(--cyan-light));
+}
+
+/* Canvas Background */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dynamic Cosmic Sky Overlays */
+.sky-glow-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 18% 22%, rgba(139, 92, 246, 0.24) 0%, transparent 48%),
+    radial-gradient(circle at 75% 28%, rgba(6, 182, 212, 0.22) 0%, rgba(37, 99, 235, 0.14) 35%, transparent 60%),
+    radial-gradient(circle at 88% 10%, rgba(219, 39, 119, 0.18) 0%, transparent 42%),
+    radial-gradient(circle at 50% 65%, rgba(99, 102, 241, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 25% 80%, rgba(2, 132, 199, 0.16) 0%, transparent 45%);
+  animation: cosmic-purple-pulse 14s ease-in-out infinite alternate;
+}
+
+@keyframes cosmic-purple-pulse {
+  0% { opacity: 0.85; transform: scale(1) translate(0, 0); }
+  50% { opacity: 1; transform: scale(1.03) translate(1.2%, -0.8%); }
+  100% { opacity: 0.85; transform: scale(1) translate(0, 0); }
+}
+
+.sky-clouds-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(14, 20, 56, 0.05) 0%, rgba(1, 3, 16, 0.78) 100%);
+}
+
+.horizon-city-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 380px;
+  background-image: url('/images/horizon_skyline.svg');
+  background-size: cover;
+  background-position: bottom center;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Layout Container */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Silky Smooth Scroll Reveal Utility Classes */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(50px) scale(0.96);
+  transition: opacity 0.9s var(--ease-smooth), transform 0.9s var(--ease-smooth);
+  will-change: opacity, transform;
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.delay-1 { transition-delay: 0.12s; }
+.delay-2 { transition-delay: 0.24s; }
+.delay-3 { transition-delay: 0.36s; }
+
+/* Typography Rules */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #7dd3fc 40%, #38bdf8 75%, #a78bfa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cosmicShimmer 5s linear infinite;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));
+}
+
+@keyframes cosmicShimmer {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+.accent-text {
+  color: #38bdf8;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+}
+
+.section {
+  padding: 125px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  margin-bottom: 56px;
+}
+
+.section-header.center {
+  text-align: center;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #38bdf8;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.tag-line {
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #38bdf8);
+}
+
+.section-tag .tag-line:last-child {
+  background: linear-gradient(90deg, #38bdf8, transparent);
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+.section-desc {
+  font-size: 1.15rem;
+  color: #e2e8f0;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Glassmorphism Components */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 30px rgba(168, 85, 247, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Interactive Glass Cards with Mouse Spotlight Haze */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  transition: transform var(--trans-medium), background var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-medium);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, 50%);
+  left: var(--mouse-x, 50%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(139, 92, 246, 0.08) 45%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(6, 182, 212, 0.25);
+}
+
+/* Base Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border-radius: 40px;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: all var(--trans-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Masterclass EXPLORE DEVCON17 Button */
+.btn-primary-glow {
+  background: linear-gradient(135deg, #1e1b4b 0%, #2563eb 32%, #0284c7 65%, #38bdf8 100%);
+  color: #ffffff;
+  border: 1px solid rgba(125, 211, 252, 0.65);
+  box-shadow: 
+    0 4px 20px rgba(56, 189, 248, 0.42), 
+    0 0 35px rgba(37, 99, 235, 0.35), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary-glow i {
+  font-size: 1rem;
+  transition: transform var(--trans-fast);
+}
+
+.btn-primary-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-20deg);
+  animation: btnLightSweep 3.2s ease-in-out infinite;
+}
+
+@keyframes btnLightSweep {
+  0% { left: -100%; }
+  35% { left: 180%; }
+  100% { left: 180%; }
+}
+
+.btn-primary-glow:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: #ffffff;
+  background: linear-gradient(135deg, #2563eb 0%, #0284c7 35%, #38bdf8 75%, #7dd3fc 100%);
+  box-shadow: 
+    0 8px 30px rgba(56, 189, 248, 0.65), 
+    0 0 45px rgba(99, 102, 241, 0.5),
+    inset 0 1px 0 #ffffff;
+}
+
+.btn-primary-glow:hover i {
+  transform: translateX(6px);
+}
+
+.btn-outline-pill {
+  background: rgba(10, 20, 58, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.btn-outline-pill:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.35), rgba(56, 189, 248, 0.3));
+  border-color: #38bdf8;
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.4), 0 0 25px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.btn-large {
+  padding: 18px 46px;
+  font-size: 0.98rem;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}

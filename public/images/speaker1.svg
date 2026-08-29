@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="spk1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c102b"/>
+      <stop offset="100%" stop-color="#1e1845"/>
+    </linearGradient>
+    <linearGradient id="neonGlow1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="glow1">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="20" fill="url(#spk1Bg)"/>
+
+  <!-- Code Constellation Graphic Overlay -->
+  <g opacity="0.4" stroke="#38bdf8" stroke-width="1.2" filter="url(#glow1)">
+    <circle cx="80" cy="90" r="4" fill="#38bdf8"/>
+    <circle cx="320" cy="110" r="5" fill="#a78bfa"/>
+    <circle cx="340" cy="280" r="4" fill="#38bdf8"/>
+    <circle cx="60" cy="270" r="3" fill="#a78bfa"/>
+    <line x1="80" y1="90" x2="320" y2="110"/>
+    <line x1="320" y1="110" x2="340" y2="280"/>
+    <line x1="80" y1="90" x2="60" y2="270"/>
+    <text x="50" y="160" font-family="monospace" font-size="18" fill="#38bdf8">&lt;/&gt;</text>
+  </g>
+
+  <!-- Speaker Avatar Silhouette (Male engineer with glasses & hoodie) -->
+  <g transform="translate(100, 70)">
+    <!-- Glow aura -->
+    <circle cx="100" cy="90" r="75" fill="rgba(56, 189, 248, 0.15)" filter="url(#glow1)"/>
+    <!-- Head -->
+    <circle cx="100" cy="80" r="45" fill="#f1f5f9"/>
+    <!-- Glasses -->
+    <rect x="72" y="70" width="22" height="15" rx="3" fill="none" stroke="#0f172a" stroke-width="3"/>
+    <rect x="106" y="70" width="22" height="15" rx="3" fill="none" stroke="#0f172a" stroke-width="3"/>
+    <line x1="94" y1="77" x2="106" y2="77" stroke="#0f172a" stroke-width="3"/>
+    <!-- Smile -->
+    <path d="M88,105 Q100,118 112,105" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+    <!-- Hair -->
+    <path d="M55,75 Q100,30 145,75 Q135,45 100,45 Q65,45 55,75 Z" fill="#1e293b"/>
+    <!-- Hoodie Shoulders -->
+    <path d="M20,240 C20,160 50,150 100,150 C150,150 180,160 180,240 Z" fill="#0f172a"/>
+    <!-- Code Symbol on Hoodie -->
+    <text x="82" y="200" font-family="monospace" font-weight="bold" font-size="22" fill="#38bdf8" filter="url(#glow1)">&lt;/&gt;</text>
+  </g>
+</svg>

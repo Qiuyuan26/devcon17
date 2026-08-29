@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="spk4Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#190a2a"/>
+      <stop offset="100%" stop-color="#2a1240"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" rx="20" fill="url(#spk4Bg)"/>
+
+  <!-- Leadership / Tech Constellation Overlay -->
+  <g opacity="0.4" stroke="#f43f5e" stroke-width="1.2" filter="url(#glow4)">
+    <polygon points="200,40 230,70 170,70" fill="none"/>
+    <circle cx="70" cy="180" r="14" fill="none"/>
+    <circle cx="330" cy="180" r="14" fill="none"/>
+    <line x1="170" y1="70" x2="70" y2="166"/>
+    <line x1="230" y1="70" x2="330" y2="166"/>
+  </g>
+
+  <!-- Speaker Avatar Silhouette (Female Tech Leader / Educator in Blazer) -->
+  <g transform="translate(100, 70)">
+    <circle cx="100" cy="90" r="75" fill="rgba(244, 63, 94, 0.15)" filter="url(#glow4)"/>
+    <circle cx="100" cy="80" r="42" fill="#f8fafc"/>
+    <!-- Eyes & Smile -->
+    <circle cx="86" cy="76" r="4" fill="#0f172a"/>
+    <circle cx="114" cy="76" r="4" fill="#0f172a"/>
+    <path d="M88,98 Q100,112 112,98" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+    <!-- Elegant Bob Haircut -->
+    <path d="M52,70 C48,125 65,145 75,145 C78,110 78,60 100,60 C122,60 122,110 125,145 C135,145 152,125 148,70 C142,32 58,32 52,70 Z" fill="#331832"/>
+    <!-- Executive Blazer Shoulders -->
+    <path d="M25,240 C25,160 55,150 100,150 C145,150 175,160 175,240 Z" fill="#475569"/>
+    <!-- Inner Top -->
+    <polygon points="85,150 100,185 115,150" fill="#f8fafc"/>
+  </g>
+</svg>

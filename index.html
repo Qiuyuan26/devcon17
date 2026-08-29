@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Smarter: Modern Software Development with AI | DEVCON17 Manila</title>
+  <meta name="description" content="Code Smarter is an online community event by DEVCON Manila equipping participants with practical AI-powered software development skills. September 6, 2026 via Google Meet.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <link rel="stylesheet" href="./src/styles/components.css">
+</head>
+<body>
+
+  <!-- Background Canvas & Sky Overlays -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="sky-glow-overlay"></div>
+  <div class="sky-clouds-overlay"></div>
+
+  <!-- ==============================
+       HEADER NAV
+  ================================ -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-mark"><i class="fa-solid fa-sparkles"></i></div>
+        <span class="brand-name">DEVCON<span class="accent-text">17</span></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="#program" class="nav-link">PROGRAM</a>
+        <a href="#speakers" class="nav-link">SPEAKERS</a>
+        <a href="#sponsors" class="nav-link">SPONSORS</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+
+
+      <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==============================
+         HERO SECTION
+    ================================ -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+
+        <!-- Code Snippet Overlays -->
+        <div class="code-snippet code-snippet-left">
+          // imagine<br>
+          // innovate<br>
+          // implement
+        </div>
+
+        <div class="code-snippet code-snippet-right">
+          function future() {<br>
+          &nbsp;&nbsp;return better;<br>
+          }
+        </div>
+
+        <!-- Section Tag -->
+        <div class="hero-tag reveal-init">
+          <span class="tag-line"></span>
+          <span>DEVCON17</span>
+          <span class="tag-line"></span>
+        </div>
+
+        <!-- Main Hero Title -->
+        <h1 class="hero-title-main reveal-init delay-1">
+          CODE<br>SMARTER
+        </h1>
+
+        <!-- Subtitle / Tagline -->
+        <p class="hero-tagline reveal-init delay-2">
+          Dream it. Code it. Build the future.
+        </p>
+
+        <!-- Primary CTA Button -->
+        <div class="hero-cta reveal-init delay-3">
+          <a href="#about" class="btn btn-primary-glow btn-large">
+            EXPLORE DEVCON17 <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Event Details Bar -->
+        <div class="hero-details-bar reveal-init delay-3">
+          <div class="details-item">
+            <i class="fa-regular fa-calendar-check details-icon"></i>
+            <div class="details-info">
+              <span class="details-title">SEPTEMBER 6, 2026</span>
+              <span class="details-sub">Sunday · 1:00 PM – 5:00 PM</span>
+            </div>
+          </div>
+          <div class="details-item">
+            <i class="fa-solid fa-laptop details-icon"></i>
+            <div class="details-info">
+              <span class="details-title">GOOGLE MEET</span>
+              <span class="details-sub">Online Community Webinar</span>
+            </div>
+          </div>
+          <div class="details-item">
+            <i class="fa-solid fa-user-group details-icon"></i>
+            <div class="details-info">
+              <span class="details-title">100–200 PARTICIPANTS</span>
+              <span class="details-sub">BSIT Students &amp; Developers</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-prompt reveal-init delay-3">
+          <div class="mouse-icon"><div class="wheel"></div></div>
+          <span>SCROLL TO EXPLORE</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================
+         OUR VISION / ABOUT SECTION
+    ================================ -->
+    <section id="about" class="section vision-section">
+      <div class="container">
+        <div class="section-header center reveal-init">
+          <div class="section-tag">
+            <span class="tag-line"></span>
+            <span>OUR VISION</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Where ideas become <span class="gradient-text">technology.</span></h2>
+          <p class="section-desc">
+            DEVCON Manila brings together passionate developers, designers, and dreamers to learn, build, and connect. Together, we'll shape the future through code and innovation.
+          </p>
+        </div>
+
+        <!-- 3 Feature Glass Cards (01 LEARN, 02 BUILD, 03 CONNECT) -->
+        <div class="vision-cards-grid reveal-init delay-1">
+
+          <div class="vision-card glass-card">
+            <div class="card-top-number">01</div>
+            <div class="card-icon-circle">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <h3 class="card-title">LEARN</h3>
+            <p class="card-desc">Discover new technologies and level up your skills with industry experts.</p>
+            <div class="card-action-btn"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <div class="vision-card glass-card">
+            <div class="card-top-number">02</div>
+            <div class="card-icon-circle">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3 class="card-title">BUILD</h3>
+            <p class="card-desc">Turn ideas into real solutions and bring your vision to life.</p>
+            <div class="card-action-btn"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <div class="vision-card glass-card">
+            <div class="card-top-number">03</div>
+            <div class="card-icon-circle">
+              <i class="fa-solid fa-users-viewfinder"></i>
+            </div>
+            <h3 class="card-title">CONNECT</h3>
+            <p class="card-desc">Meet brilliant minds, share ideas, and build meaningful connections.</p>
+            <div class="card-action-btn"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         OUR SPEAKERS SECTION
+    ================================ -->
+    <section id="speakers" class="section speakers-section">
+      <div class="container">
+        <div class="section-header center reveal-init">
+          <div class="section-tag">
+            <span class="tag-line"></span>
+            <span>OUR SPEAKERS</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Industry Leaders & <span class="gradient-text">AI Pioneers.</span></h2>
+          <p class="section-desc">Learn directly from engineers, architects, and technology advocates shaping modern software engineering.</p>
+        </div>
+
+        <!-- 4 Speaker Cards Grid matching the GDoc specifications -->
+        <div class="speakers-mockup-grid">
+
+          <!-- Speaker 1 -->
+          <div class="speaker-card-mockup glass-card reveal-init delay-1">
+            <div class="card-top-number">01</div>
+            <div class="speaker-photo-wrap">
+              <img src="/images/speaker1.svg" alt="Speaker 1 Avatar" class="speaker-photo">
+            </div>
+            <h3 class="speaker-talk-title">Prompt Like a Pro</h3>
+            <div class="speaker-role-text">AI Software Engineer / AI Developer / Prompt Engineering Specialist</div>
+            <p class="speaker-desc-text">Practical experience using LLMs, prompt engineering, AI coding assistants, and developer-focused AI workflows. Demonstrating how developers write effective prompts.</p>
+            <div class="card-action-btn"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- Speaker 2 -->
+          <div class="speaker-card-mockup glass-card reveal-init delay-2">
+            <div class="card-top-number">02</div>
+            <div class="speaker-photo-wrap">
+              <img src="/images/speaker2.svg" alt="Speaker 2 Avatar" class="speaker-photo">
+            </div>
+            <h3 class="speaker-talk-title">Building Applications Faster with AI</h3>
+            <div class="speaker-role-text">AI Engineer / Full-Stack Developer / Solutions Engineer</div>
+            <p class="speaker-desc-text">Experience building applications with AI, particularly frontend, backend, APIs, databases, and rapid prototyping. Live demo included!</p>
+            <div class="card-action-btn"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- Speaker 3 -->
+          <div class="speaker-card-mockup glass-card reveal-init delay-3">
+            <div class="card-top-number">03</div>
+            <div class="speaker-photo-wrap">
+              <img src="/images/speaker3.svg" alt="Speaker 3 Avatar" class="speaker-photo">
+            </div>
+            <h3 class="speaker-talk-title">AI-Powered Development Workflow</h3>
+            <div class="speaker-role-text">Software Architect / Engineering Lead / DevOps Engineer</div>
+            <p class="speaker-desc-text">Experience with software engineering practices such as testing, debugging, code review, refactoring, documentation, CI/CD, DevOps, and using AI to improve productivity.</p>
+            <div class="card-action-btn"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- Speaker 4 -->
+          <div class="speaker-card-mockup glass-card reveal-init delay-4">
+            <div class="card-top-number">04</div>
+            <div class="speaker-photo-wrap">
+              <img src="/images/speaker4.svg" alt="Speaker 4 Avatar" class="speaker-photo">
+            </div>
+            <h3 class="speaker-talk-title">Becoming an AI-Ready Software Developer</h3>
+            <div class="speaker-role-text">Technology Leader / AI Engineer / Developer Advocate / Educator</div>
+            <p class="speaker-desc-text">Industry perspective on AI tools, portfolio building, career preparation, responsible AI, and emerging trends in software engineering for students.</p>
+            <div class="card-action-btn"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         PROGRAM & TIMELINE SECTION
+    ================================ -->
+    <section id="program" class="section timeline-section">
+      <div class="container">
+        <div class="section-header center reveal-init">
+          <div class="section-tag">
+            <span class="tag-line"></span>
+            <span>PROGRAM & TIMELINE</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Key Event Milestones</h2>
+        </div>
+
+        <!-- 5 Horizontal Timeline Nodes -->
+        <div class="horizontal-timeline-wrap reveal-init delay-1">
+          <div class="timeline-track-line"></div>
+
+          <div class="horizontal-timeline-step">
+            <div class="ht-icon-node"><i class="fa-solid fa-bullhorn"></i></div>
+            <div class="ht-date">JULY 15, 2026</div>
+            <div class="ht-title">Announcement & Save the Date</div>
+          </div>
+
+          <div class="horizontal-timeline-step">
+            <div class="ht-icon-node"><i class="fa-solid fa-pen-to-square"></i></div>
+            <div class="ht-date">JULY 20 – AUG 10, 2026</div>
+            <div class="ht-title">Early Registration & Promotions</div>
+          </div>
+
+          <div class="horizontal-timeline-step">
+            <div class="ht-icon-node"><i class="fa-solid fa-user-group"></i></div>
+            <div class="ht-date">AUG 11 – AUG 31, 2026</div>
+            <div class="ht-title">Final Registration Push</div>
+          </div>
+
+          <div class="horizontal-timeline-step active-event-day">
+            <div class="ht-icon-node active-glow"><i class="fa-solid fa-calendar-day"></i></div>
+            <div class="ht-date highlight">SEPTEMBER 6, 2026</div>
+            <div class="ht-title">Event Day</div>
+            <div class="ht-time">(1:00 PM – 5:00 PM)</div>
+          </div>
+
+          <div class="horizontal-timeline-step">
+            <div class="ht-icon-node"><i class="fa-solid fa-gift"></i></div>
+            <div class="ht-date">AFTER THE EVENT</div>
+            <div class="ht-title">Certificates, Feedback & Event Wrap-up</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         PARTNERS & SPONSORS + SOURCE DEVCON PH
+    ================================ -->
+    <section id="sponsors" class="section sponsors-and-source-section">
+      <div class="container">
+        <div class="sponsors-source-split-grid reveal-init delay-1">
+
+          <!-- Left Column: Partners & Sponsors -->
+          <div class="partners-sponsors-card glass-panel">
+            <div class="ps-header">
+              <i class="fa-solid fa-handshake accent-text"></i>
+              <h3>PARTNERS & SPONSORS</h3>
+            </div>
+
+            <div class="ps-section-group">
+              <div class="ps-group-title">Community Partners</div>
+              <div class="ps-partners-grid">
+                <a href="https://devcon.ph/manila/" target="_blank" rel="noopener noreferrer" class="ps-partner-card glass-card ps-partner-link">
+                  <div class="ps-partner-icon-wrap"><i class="fa-solid fa-code accent-text"></i></div>
+                  <div class="ps-partner-info">
+                    <h4 class="ps-partner-name">DEVCON MANILA <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i></h4>
+                    <span class="ps-partner-role">Organizer &amp; Chapter Lead</span>
+                  </div>
+                </a>
+
+                <a href="https://www.facebook.com/campusdevcon/" target="_blank" rel="noopener noreferrer" class="ps-partner-card glass-card ps-partner-link">
+                  <div class="ps-partner-icon-wrap"><i class="fa-solid fa-graduation-cap accent-text"></i></div>
+                  <div class="ps-partner-info">
+                    <h4 class="ps-partner-name">CAMPUS DEVCON <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i></h4>
+                    <span class="ps-partner-role">Student Community Network</span>
+                  </div>
+                </a>
+
+                <a href="https://www.devconkids.org/" target="_blank" rel="noopener noreferrer" class="ps-partner-card glass-card ps-partner-link">
+                  <div class="ps-partner-icon-wrap"><i class="fa-solid fa-child-reaching accent-text"></i></div>
+                  <div class="ps-partner-info">
+                    <h4 class="ps-partner-name">DEVCON KIDS <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i></h4>
+                    <span class="ps-partner-role">Youth Tech Empowerment</span>
+                  </div>
+                </a>
+
+                <div class="ps-partner-card glass-card">
+                  <div class="ps-partner-icon-wrap"><i class="fa-solid fa-users accent-text"></i></div>
+                  <div class="ps-partner-info">
+                    <h4 class="ps-partner-name">Student Tech Communities</h4>
+                    <span class="ps-partner-role">Partner Universities &amp; Orgs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <!-- Right Column: DEVCON Jumpstart Internship Card -->
+          <div class="devcon-ph-source-card glass-panel">
+            <div class="source-card-header">
+              <h3>DEVCON JUMPSTART INTERNSHIP</h3>
+              <p>Kickstart your tech career with DEVCON Jumpstart Internships. Gain hands-on industry experience, mentorship from seasoned software engineers, and real-world tech exposure.</p>
+              <a href="https://devcon.ph/jumpstart-internships/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-pill btn-small">
+                EXPLORE JUMPSTART <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- Graphic Poster Image -->
+            <div class="source-poster-wrap">
+              <img src="/images/devcon17_poster.svg" alt="DEVCON 17 Philippines Manila Poster" class="source-poster-img">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         FAQ SECTION
+    ================================ -->
+    <section id="faq" class="section faq-section">
+      <div class="container">
+        <div class="section-header center reveal-init">
+          <div class="section-tag">
+            <span class="tag-line"></span>
+            <span>FREQUENTLY ASKED QUESTIONS</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Everything you need to <span class="gradient-text">know.</span></h2>
+        </div>
+
+        <div class="faq-container reveal-init delay-1">
+
+          <div class="faq-item glass-card">
+            <button class="faq-question">
+              <span>Who can join Code Smarter?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Code Smarter is open to BSIT students, computer science majors, developers, prompt engineers, and tech enthusiasts interested in AI-driven software development workflows.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button class="faq-question">
+              <span>Is the webinar free of charge?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Admission is 100% free. Slots are limited to 100–200 participants on Google Meet, so early registration is encouraged.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button class="faq-question">
+              <span>Will certificates be provided?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, free digital certificates of participation will be issued to registered attendees who submit the event feedback form after the sessions.</p>
+            </div>
+          </div>
+
+          <div class="faq-item glass-card">
+            <button class="faq-question">
+              <span>How do I receive the Google Meet event link?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>The calendar invitation and Google Meet event link will be broadcasted to all participants prior to September 6, 2026.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         CTA BANNER SECTION
+    ================================ -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card glass-panel reveal-init">
+          <h2 class="cta-title">WHAT WILL YOU <span class="gradient-text">BUILD?</span></h2>
+          <div class="cta-subtitle">DEVCON17 × CODE SMARTER</div>
+          <p class="cta-desc">Join 100–200 BSIT students and developers on September 6, 2026 for an inspiring, hands-on session exploring the future of AI in software development.</p>
+          <a href="#about" class="btn btn-primary-glow btn-large">
+            EXPLORE EVENT <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================
+       FOOTER
+  ================================ -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <i class="fa-solid fa-sparkles accent-text"></i>
+          <span>DEVCON<span class="accent-text">17</span></span>
+        </div>
+        <span class="footer-tagline">Dream it. Code it. Build the future.</span>
+      </div>
+      <div class="footer-center">
+        &copy; 2026 DEVCON Manila Chapter. All rights reserved.
+      </div>
+      <div class="footer-socials">
+        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="#" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/scripts/main.js"></script>
+</body>
+</html>
