@@ -12,7 +12,7 @@ const SCHEDULE_DATA = {
       speaker: 'Dr. Lyra Vance & Marcus Chen',
       track: 'keynote',
       trackName: 'KEYNOTE',
-      trackColor: '#4cc9f0'
+      trackColor: '#22e1ff'
     },
     {
       id: 's102',
@@ -22,7 +22,7 @@ const SCHEDULE_DATA = {
       speaker: 'Marcus Chen',
       track: 'ai',
       trackName: 'AI & AGENTS',
-      trackColor: '#7209b7'
+      trackColor: '#a21cff'
     },
     {
       id: 's103',
@@ -32,7 +32,7 @@ const SCHEDULE_DATA = {
       speaker: 'Aria Sterling',
       track: 'arch',
       trackName: 'SYSTEMS',
-      trackColor: '#f72585'
+      trackColor: '#ff2bd1'
     },
     {
       id: 's104',
@@ -42,7 +42,7 @@ const SCHEDULE_DATA = {
       speaker: 'Kairos Thorne',
       track: 'ai',
       trackName: 'AI & AGENTS',
-      trackColor: '#7209b7'
+      trackColor: '#a21cff'
     }
   ],
   day2: [
@@ -54,7 +54,7 @@ const SCHEDULE_DATA = {
       speaker: 'Dr. Lyra Vance',
       track: 'arch',
       trackName: 'SYSTEMS',
-      trackColor: '#f72585'
+      trackColor: '#ff2bd1'
     },
     {
       id: 's202',
@@ -64,7 +64,7 @@ const SCHEDULE_DATA = {
       speaker: 'Kairos Thorne',
       track: 'arch',
       trackName: 'SYSTEMS',
-      trackColor: '#f72585'
+      trackColor: '#ff2bd1'
     },
     {
       id: 's203',
@@ -74,7 +74,7 @@ const SCHEDULE_DATA = {
       speaker: 'Aria Sterling',
       track: 'ai',
       trackName: 'AI & AGENTS',
-      trackColor: '#7209b7'
+      trackColor: '#a21cff'
     }
   ],
   day3: [
@@ -86,7 +86,7 @@ const SCHEDULE_DATA = {
       speaker: 'Panel Discussion',
       track: 'keynote',
       trackName: 'KEYNOTE',
-      trackColor: '#4cc9f0'
+      trackColor: '#22e1ff'
     },
     {
       id: 's302',
@@ -96,7 +96,7 @@ const SCHEDULE_DATA = {
       speaker: 'Dr. Lyra Vance & Guest Visionaries',
       track: 'keynote',
       trackName: 'KEYNOTE',
-      trackColor: '#4cc9f0'
+      trackColor: '#22e1ff'
     },
     {
       id: 's303',
@@ -106,7 +106,7 @@ const SCHEDULE_DATA = {
       speaker: 'DEVCON Committee',
       track: 'keynote',
       trackName: 'GRAND FINALE',
-      trackColor: '#ffb703'
+      trackColor: '#ffd028'
     }
   ]
 };
@@ -139,7 +139,7 @@ export function initSchedule() {
           <span class="room-val"><i class="fa-solid fa-location-dot"></i> ${s.room}</span>
         </div>
         <div class="session-details">
-          <span class="session-track-badge" style="background: rgba(76, 201, 240, 0.15); color: ${s.trackColor}; border-color: ${s.trackColor};">
+          <span class="session-track-badge" style="background: rgba(162, 28, 255, 0.15); color: ${s.trackColor}; border-color: ${s.trackColor};">
             ${s.trackName}
           </span>
           <h3 class="session-title">${s.title}</h3>

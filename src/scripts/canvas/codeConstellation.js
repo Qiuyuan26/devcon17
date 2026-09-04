@@ -173,7 +173,7 @@ export class CodeConstellationLab {
         vy: Math.sin(angle) * speed,
         radius: Math.random() * 3.5 + 1.5,
         alpha: 1,
-        color: Math.random() > 0.5 ? '#00f2fe' : '#9d4edd'
+        color: Math.random() > 0.5 ? '#22e1ff' : '#a21cff'
       });
     }
   }
@@ -266,7 +266,7 @@ export class CodeConstellationLab {
       const nB = this.nodes[conn.to];
       if (!nA || !nB) return;
 
-      this.ctx.strokeStyle = 'rgba(0, 242, 254, 0.45)';
+      this.ctx.strokeStyle = 'rgba(34, 225, 255, 0.45)';
       this.ctx.lineWidth = 1.6;
       this.ctx.beginPath();
       this.ctx.moveTo(nA.x, nA.y);
@@ -288,7 +288,7 @@ export class CodeConstellationLab {
       const py = p.fromNode.y + (p.toNode.y - p.fromNode.y) * p.progress;
 
       this.ctx.fillStyle = '#ffffff';
-      this.ctx.shadowColor = '#00f2fe';
+      this.ctx.shadowColor = '#22e1ff';
       this.ctx.shadowBlur = 14;
       this.ctx.beginPath();
       this.ctx.arc(px, py, 4.5, 0, Math.PI * 2);
@@ -310,7 +310,7 @@ export class CodeConstellationLab {
 
       // Glow halo
       const grad = this.ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, radius * 4);
-      grad.addColorStop(0, isSelect ? 'rgba(244, 63, 94, 0.9)' : (isHover ? 'rgba(0, 242, 254, 0.9)' : 'rgba(157, 78, 221, 0.6)'));
+      grad.addColorStop(0, isSelect ? 'rgba(255, 43, 209, 0.9)' : (isHover ? 'rgba(34, 225, 255, 0.9)' : 'rgba(162, 28, 255, 0.6)'));
       grad.addColorStop(1, 'transparent');
 
       this.ctx.fillStyle = grad;
@@ -319,7 +319,7 @@ export class CodeConstellationLab {
       this.ctx.fill();
 
       // Node Core
-      this.ctx.fillStyle = isSelect ? '#f43f5e' : (isHover ? '#00f2fe' : '#ffffff');
+      this.ctx.fillStyle = isSelect ? '#ff2bd1' : (isHover ? '#22e1ff' : '#ffffff');
       this.ctx.beginPath();
       this.ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
       this.ctx.fill();

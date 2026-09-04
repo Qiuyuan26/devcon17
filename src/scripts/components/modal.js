@@ -71,7 +71,7 @@ function createParticleBurst() {
     const particle = document.createElement('div');
     particle.className = 'burst-particle';
     
-    const colors = ['#4cc9f0', '#7209b7', '#f72585', '#ffb703', '#ffffff'];
+    const colors = ['#22e1ff', '#a21cff', '#ff2bd1', '#ffd028', '#ffffff'];
     const color = colors[Math.floor(Math.random() * colors.length)];
     
     particle.style.cssText = `

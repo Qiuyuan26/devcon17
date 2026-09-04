@@ -24,6 +24,8 @@
   <canvas id="bg-canvas"></canvas>
   <div class="sky-glow-overlay"></div>
   <div class="sky-clouds-overlay"></div>
+  <div class="arcade-grid-floor"></div>
+  <div class="crt-scanlines"></div>
 
   <!-- ==============================
        HEADER NAV
@@ -31,11 +33,8 @@
   <header class="site-header">
     <div class="container nav-container">
       <a href="#" class="brand-logo">
-        <div class="devcon-brand-pill nav-pill">
-          <span class="dm-logo-text">DEV<span class="dm-dots-icon"><span class="dot dot-y"></span><span class="dot dot-o"></span><span class="dot dot-p"></span><span class="dot dot-g"></span></span>CON</span>
-          <span class="dm-chapter-sub">MANILA CHAPTER</span>
-        </div>
-      </a>
+        <img src="/images/devcon-manila-white.png" alt="DEVCON Manila Chapter" class="devcon-logo nav-logo">
+        </a>
 
       <nav class="main-nav" id="main-nav">
         <a href="#about" class="nav-link">ABOUT</a>
@@ -61,10 +60,7 @@
 
         <!-- Top Header Brand Badge -->
         <div class="hero-brand-top reveal-init">
-          <div class="devcon-brand-pill hero-pill">
-            <span class="dm-logo-text">DEV<span class="dm-dots-icon"><span class="dot dot-y"></span><span class="dot dot-o"></span><span class="dot dot-p"></span><span class="dot dot-g"></span></span>CON</span>
-            <span class="dm-chapter-sub">MANILA CHAPTER</span>
-          </div>
+          <img src="/images/devcon-manila-white.png" alt="DEVCON Manila Chapter" class="devcon-logo hero-logo">
         </div>
 
         <!-- 3D Pixel Arcade Titles: CODE SMARTER -->
@@ -87,47 +83,53 @@
 
           <!-- Top-Right Wireframe Hand -->
           <div class="cyber-hand-wireframe">
-            <svg viewBox="0 0 320 320" class="hand-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g class="wireframe-lines" stroke="#ff2a85" stroke-width="1.6" opacity="0.95">
-                <path d="M280 20 L220 70 L170 120 L130 160 L90 190 L60 210" />
-                <path d="M290 50 L240 95 L195 140 L155 175 L120 205" />
-                <path d="M260 10 L200 60 L150 110 L110 150 L80 180" />
-                <path d="M300 80 L255 125 L215 165 L180 195 L150 220" />
-                <path d="M240 10 L260 50 L290 80 L310 120" />
-                <path d="M190 60 L215 95 L245 130 L270 165" />
-                <path d="M140 110 L165 145 L195 175 L220 205" />
-                <path d="M90 160 L115 190 L145 215 L170 240" />
-                <path d="M130 160 L110 150 L95 145 L75 140" stroke="#00f0ff" stroke-width="2" />
-                <path d="M155 175 L135 170 L115 170 L90 175" stroke="#00f0ff" stroke-width="2" />
-                <path d="M180 195 L160 195 L140 200 L115 210" stroke="#ff2a85" stroke-width="2" />
-                <circle cx="75" cy="140" r="3.5" fill="#ffffff" filter="drop-shadow(0 0 8px #00f0ff)" />
-                <circle cx="90" cy="175" r="3.5" fill="#ffffff" filter="drop-shadow(0 0 8px #00f0ff)" />
+            <svg viewBox="0 0 320 320" class="hand-svg" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="handMesh" width="13" height="13" patternUnits="userSpaceOnUse">
+                  <path d="M13 0 L0 0 0 13" fill="none" stroke="#ff2bd1" stroke-width="1.1" opacity="0.95"/>
+                </pattern>
+                <linearGradient id="meshEdge" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ff2bd1"/>
+                  <stop offset="60%" stop-color="#ff5cb8"/>
+                  <stop offset="100%" stop-color="#a21cff"/>
+                </linearGradient>
+              </defs>
+              <g transform="rotate(214 160 160)" fill="url(#handMesh)" stroke="url(#meshEdge)" stroke-width="2">
+                <ellipse cx="160" cy="222" rx="64" ry="70"/>
+                <rect x="110" y="92"  width="31" height="132" rx="15.5"/>
+                <rect x="146" y="76"  width="31" height="148" rx="15.5"/>
+                <rect x="182" y="92"  width="31" height="132" rx="15.5"/>
+                <rect x="217" y="122" width="28" height="102" rx="14"/>
+                <rect x="70"  y="164" width="29" height="92"  rx="14.5" transform="rotate(-32 84 210)"/>
               </g>
             </svg>
           </div>
 
           <!-- Bottom-Left Smooth Cyber Hand -->
           <div class="cyber-hand-smooth">
-            <svg viewBox="0 0 320 320" class="hand-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 320" class="hand-svg" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="cyberHandGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#3b0764" />
-                  <stop offset="45%" stop-color="#c026d3" />
-                  <stop offset="85%" stop-color="#f472b6" />
-                  <stop offset="100%" stop-color="#ffffff" />
+                  <stop offset="0%"   stop-color="#2a0a54"/>
+                  <stop offset="35%"  stop-color="#7c2bff"/>
+                  <stop offset="68%"  stop-color="#ff2bd1"/>
+                  <stop offset="88%"  stop-color="#ff9ddf"/>
+                  <stop offset="100%" stop-color="#ffffff"/>
                 </linearGradient>
-                <filter id="cyberGlow">
-                  <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
-                  <feMerge>
-                    <feMergeNode in="coloredBlur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
+                <filter id="cyberGlow" x="-40%" y="-40%" width="180%" height="180%">
+                  <feGaussianBlur stdDeviation="5" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
               </defs>
-              <path d="M20 300 C60 270 100 230 140 190 C165 165 190 145 225 130 C240 124 255 125 260 135 C250 145 230 160 210 175 C190 190 170 210 150 230 C130 250 100 280 70 310 Z" fill="url(#cyberHandGrad)" filter="url(#cyberGlow)" opacity="0.95" />
-              <path d="M200 150 C220 135 245 120 268 112 C275 110 280 114 278 120 C270 128 250 145 230 160 Z" fill="url(#cyberHandGrad)" />
-              <path d="M170 190 C185 180 205 175 220 175 C225 175 228 180 224 185 C210 195 190 205 175 215 Z" fill="#e879f9" />
-              <circle cx="270" cy="113" r="5" fill="#ffffff" filter="drop-shadow(0 0 12px #ffffff)" />
+              <g transform="rotate(38 160 160)" fill="url(#cyberHandGrad)" filter="url(#cyberGlow)">
+                <!-- palm + curled fingers, index extended toward the light -->
+                <ellipse cx="150" cy="228" rx="62" ry="66"/>
+                <rect x="128" y="52"  width="34" height="180" rx="17"/>
+                <rect x="168" y="150" width="32" height="86"  rx="16"/>
+                <rect x="200" y="166" width="30" height="72"  rx="15"/>
+                <rect x="96"  y="176" width="30" height="80"  rx="15" transform="rotate(-30 111 216)"/>
+              </g>
+              <circle cx="215" cy="72" r="6" fill="#ffffff" filter="url(#cyberGlow)"/>
             </svg>
           </div>
 
@@ -312,12 +314,8 @@
         
         <!-- Header with Manila Chapter + Pixel Emblem -->
         <div class="speakers-header-wrap center reveal-init">
-          <div class="devcon-brand-pill mini">
-            <span class="dm-logo-text">DEV<span class="dm-dots-icon"><span class="dot dot-y"></span><span class="dot dot-o"></span><span class="dot dot-p"></span><span class="dot dot-g"></span></span>CON</span>
-            <span class="dm-chapter-sub">MANILA CHAPTER</span>
-          </div>
-
-          <div class="speakers-arcade-badge">
+          <img src="/images/devcon-manila-white.png" alt="DEVCON Manila Chapter" class="devcon-logo mini-logo">
+        <div class="speakers-arcade-badge">
             <span class="sab-code">CODE</span>
             <span class="sab-smarter">SMARTER</span>
           </div>
@@ -644,10 +642,7 @@
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-left">
-        <div class="devcon-brand-pill mini">
-          <span class="dm-logo-text">DEV<span class="dm-dots-icon"><span class="dot dot-y"></span><span class="dot dot-o"></span><span class="dot dot-p"></span><span class="dot dot-g"></span></span>CON</span>
-          <span class="dm-chapter-sub">MANILA CHAPTER</span>
-        </div>
+        <img src="/images/devcon-manila-white.png" alt="DEVCON Manila Chapter" class="devcon-logo footer-logo">
         <span class="footer-tagline">Code Smarter. Build Faster. Ship the Future.</span>
       </div>
       <div class="footer-center">

@@ -60,7 +60,7 @@ export class StarfieldEngine {
 
   createStars(count) {
     this.stars = [];
-    const colors = ['#ffffff', '#e0f2fe', '#bae6fd', '#c084fc', '#a78bfa', '#7dd3fc', '#f472b6', '#fef08a', '#93c5fd'];
+    const colors = ['#ffffff', '#ffe9fb', '#ff2bd1', '#a21cff', '#c084fc', '#22e1ff', '#ff5cb8', '#ffd028', '#2b5cff'];
     for (let i = 0; i < count; i++) {
       this.stars.push({
         x: Math.random() * this.width,
@@ -77,7 +77,7 @@ export class StarfieldEngine {
 
   createHyperStars(count) {
     this.hyperStars = [];
-    const colors = ['#ffffff', '#7dd3fc', '#c084fc', '#fef08a'];
+    const colors = ['#ffffff', '#22e1ff', '#ff2bd1', '#ffd028'];
     for (let i = 0; i < count; i++) {
       this.hyperStars.push({
         x: Math.random() * this.width,
@@ -161,8 +161,8 @@ export class StarfieldEngine {
 
     // Atmospheric Aura
     const p1Aura = this.ctx.createRadialGradient(p1x, p1y, p1r * 0.8, p1x, p1y, p1r * 2.2);
-    p1Aura.addColorStop(0, 'rgba(139, 92, 246, 0.28)');
-    p1Aura.addColorStop(0.5, 'rgba(56, 189, 248, 0.15)');
+    p1Aura.addColorStop(0, 'rgba(162, 28, 255, 0.34)');
+    p1Aura.addColorStop(0.5, 'rgba(255, 43, 209, 0.16)');
     p1Aura.addColorStop(1, 'transparent');
     this.ctx.fillStyle = p1Aura;
     this.ctx.beginPath();
@@ -175,23 +175,23 @@ export class StarfieldEngine {
     this.ctx.rotate(-0.35);
     this.ctx.beginPath();
     this.ctx.ellipse(0, 0, p1r * 2.1, p1r * 0.5, 0, Math.PI, Math.PI * 2);
-    this.ctx.strokeStyle = 'rgba(192, 132, 252, 0.45)';
+    this.ctx.strokeStyle = 'rgba(255, 43, 209, 0.45)';
     this.ctx.lineWidth = 4.5;
     this.ctx.stroke();
     this.ctx.beginPath();
     this.ctx.ellipse(0, 0, p1r * 2.4, p1r * 0.6, 0, Math.PI, Math.PI * 2);
-    this.ctx.strokeStyle = 'rgba(56, 189, 248, 0.35)';
+    this.ctx.strokeStyle = 'rgba(162, 28, 255, 0.35)';
     this.ctx.lineWidth = 2.0;
     this.ctx.stroke();
     this.ctx.restore();
 
     // Planet Body Sphere
     const p1Grad = this.ctx.createRadialGradient(p1x - p1r * 0.35, p1y - p1r * 0.35, p1r * 0.1, p1x, p1y, p1r);
-    p1Grad.addColorStop(0, '#e0e7ff');
-    p1Grad.addColorStop(0.3, '#818cf8');
-    p1Grad.addColorStop(0.65, '#4f46e5');
-    p1Grad.addColorStop(0.9, '#1e1b4b');
-    p1Grad.addColorStop(1, '#090a1f');
+    p1Grad.addColorStop(0, '#ffe4fb');
+    p1Grad.addColorStop(0.3, '#ff2bd1');
+    p1Grad.addColorStop(0.65, '#a21cff');
+    p1Grad.addColorStop(0.9, '#2a0a54');
+    p1Grad.addColorStop(1, '#05010f');
 
     this.ctx.fillStyle = p1Grad;
     this.ctx.beginPath();
@@ -204,12 +204,12 @@ export class StarfieldEngine {
     this.ctx.rotate(-0.35);
     this.ctx.beginPath();
     this.ctx.ellipse(0, 0, p1r * 2.1, p1r * 0.5, 0, 0, Math.PI);
-    this.ctx.strokeStyle = 'rgba(192, 132, 252, 0.65)';
+    this.ctx.strokeStyle = 'rgba(255, 92, 184, 0.65)';
     this.ctx.lineWidth = 4.5;
     this.ctx.stroke();
     this.ctx.beginPath();
     this.ctx.ellipse(0, 0, p1r * 2.4, p1r * 0.6, 0, 0, Math.PI);
-    this.ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
+    this.ctx.strokeStyle = 'rgba(34, 225, 255, 0.5)';
     this.ctx.lineWidth = 2.0;
     this.ctx.stroke();
     this.ctx.restore();
@@ -220,8 +220,8 @@ export class StarfieldEngine {
     const p2r = 22;
 
     const p2Aura = this.ctx.createRadialGradient(p2x, p2y, p2r * 0.7, p2x, p2y, p2r * 2.0);
-    p2Aura.addColorStop(0, 'rgba(56, 189, 248, 0.35)');
-    p2Aura.addColorStop(0.6, 'rgba(6, 182, 212, 0.12)');
+    p2Aura.addColorStop(0, 'rgba(34, 225, 255, 0.35)');
+    p2Aura.addColorStop(0.6, 'rgba(43, 92, 255, 0.14)');
     p2Aura.addColorStop(1, 'transparent');
     this.ctx.fillStyle = p2Aura;
     this.ctx.beginPath();
@@ -230,9 +230,9 @@ export class StarfieldEngine {
 
     const p2Grad = this.ctx.createRadialGradient(p2x - p2r * 0.35, p2y - p2r * 0.35, p2r * 0.05, p2x, p2y, p2r);
     p2Grad.addColorStop(0, '#ffffff');
-    p2Grad.addColorStop(0.35, '#7dd3fc');
-    p2Grad.addColorStop(0.7, '#0284c7');
-    p2Grad.addColorStop(1, '#082f49');
+    p2Grad.addColorStop(0.35, '#22e1ff');
+    p2Grad.addColorStop(0.7, '#2b5cff');
+    p2Grad.addColorStop(1, '#08102f');
 
     this.ctx.fillStyle = p2Grad;
     this.ctx.beginPath();
@@ -245,7 +245,7 @@ export class StarfieldEngine {
     const p3r = 15;
 
     const p3Aura = this.ctx.createRadialGradient(p3x, p3y, p3r * 0.5, p3x, p3y, p3r * 2.2);
-    p3Aura.addColorStop(0, 'rgba(244, 63, 94, 0.28)');
+    p3Aura.addColorStop(0, 'rgba(255, 43, 209, 0.3)');
     p3Aura.addColorStop(1, 'transparent');
     this.ctx.fillStyle = p3Aura;
     this.ctx.beginPath();
@@ -253,10 +253,10 @@ export class StarfieldEngine {
     this.ctx.fill();
 
     const p3Grad = this.ctx.createRadialGradient(p3x - p3r * 0.3, p3y - p3r * 0.3, p3r * 0.05, p3x, p3y, p3r);
-    p3Grad.addColorStop(0, '#fecdd3');
-    p3Grad.addColorStop(0.4, '#fb7185');
-    p3Grad.addColorStop(0.8, '#9f1239');
-    p3Grad.addColorStop(1, '#2a0410');
+    p3Grad.addColorStop(0, '#ffd9f4');
+    p3Grad.addColorStop(0.4, '#ff2bd1');
+    p3Grad.addColorStop(0.8, '#7c1a6b');
+    p3Grad.addColorStop(1, '#1a0326');
 
     this.ctx.fillStyle = p3Grad;
     this.ctx.beginPath();
@@ -274,9 +274,9 @@ export class StarfieldEngine {
 
     // 1. Soft Lunar Breathing Glow
     const auraGrad = this.ctx.createRadialGradient(mx, my, mRadius * 0.3, mx, my, mRadius * 4.0 * pulseFactor);
-    auraGrad.addColorStop(0, 'rgba(125, 211, 252, 0.32)');
-    auraGrad.addColorStop(0.35, 'rgba(167, 139, 250, 0.18)');
-    auraGrad.addColorStop(0.7, 'rgba(244, 114, 182, 0.07)');
+    auraGrad.addColorStop(0, 'rgba(255, 43, 209, 0.32)');
+    auraGrad.addColorStop(0.35, 'rgba(162, 28, 255, 0.2)');
+    auraGrad.addColorStop(0.7, 'rgba(34, 225, 255, 0.08)');
     auraGrad.addColorStop(1, 'transparent');
 
     this.ctx.fillStyle = auraGrad;
@@ -287,13 +287,13 @@ export class StarfieldEngine {
     // 2. Moon Body Sphere
     const moonGrad = this.ctx.createRadialGradient(mx - mRadius * 0.3, my - mRadius * 0.3, mRadius * 0.05, mx, my, mRadius);
     moonGrad.addColorStop(0, '#ffffff');
-    moonGrad.addColorStop(0.4, '#e0f2fe');
-    moonGrad.addColorStop(0.75, '#a5f3fc');
-    moonGrad.addColorStop(0.95, '#0284c7');
-    moonGrad.addColorStop(1, '#070b28');
+    moonGrad.addColorStop(0.4, '#ffe9fb');
+    moonGrad.addColorStop(0.75, '#ff5cb8');
+    moonGrad.addColorStop(0.95, '#a21cff');
+    moonGrad.addColorStop(1, '#0a0326');
 
     this.ctx.fillStyle = moonGrad;
-    this.ctx.shadowColor = '#38bdf8';
+    this.ctx.shadowColor = '#ff2bd1';
     this.ctx.shadowBlur = 25;
     this.ctx.beginPath();
     this.ctx.arc(mx, my, mRadius, 0, Math.PI * 2);
@@ -393,8 +393,8 @@ export class StarfieldEngine {
       const tailY = ss.y - Math.sin(ss.angle) * ss.length;
 
       const grad = this.ctx.createLinearGradient(tailX, tailY, ss.x, ss.y);
-      grad.addColorStop(0, 'rgba(56, 189, 248, 0)');
-      grad.addColorStop(0.6, `rgba(125, 211, 252, ${ss.alpha * 0.6})`);
+      grad.addColorStop(0, 'rgba(34, 225, 255, 0)');
+      grad.addColorStop(0.6, `rgba(34, 225, 255, ${ss.alpha * 0.6})`);
       grad.addColorStop(1, `rgba(255, 255, 255, ${ss.alpha})`);
 
       this.ctx.strokeStyle = grad;
@@ -418,7 +418,7 @@ export class StarfieldEngine {
         p.alpha = Math.random() * 0.7 + 0.2;
       }
 
-      this.ctx.fillStyle = '#7dd3fc';
+      this.ctx.fillStyle = '#22e1ff';
       this.ctx.globalAlpha = Math.max(0, p.alpha);
       this.ctx.beginPath();
       this.ctx.arc(p.x + this.mouse.x * 0.2, p.y + this.mouse.y * 0.2, p.size, 0, Math.PI * 2);
@@ -449,7 +449,7 @@ export class StarfieldEngine {
 
         if (dist < maxDist) {
           const alpha = (1 - dist / maxDist) * 0.24;
-          this.ctx.strokeStyle = `rgba(125, 211, 252, ${alpha})`;
+          this.ctx.strokeStyle = `rgba(255, 43, 209, ${alpha})`;
           this.ctx.lineWidth = 0.9;
           this.ctx.beginPath();
           this.ctx.moveTo(nodeA.x + this.mouse.x * 0.3, nodeA.y + this.mouse.y * 0.3);
@@ -465,7 +465,7 @@ export class StarfieldEngine {
       const py = node.y + this.mouse.y * 0.3;
 
       this.ctx.fillStyle = '#ffffff';
-      this.ctx.shadowColor = '#38bdf8';
+      this.ctx.shadowColor = '#ff2bd1';
       this.ctx.shadowBlur = 8;
 
       if (node.isCodeSquare) {
@@ -495,7 +495,7 @@ export class StarfieldEngine {
 
     // Subtle Starlight Horizon Beam Line
     this.ctx.strokeStyle = 'rgba(125, 211, 252, 0.4)';
-    this.ctx.shadowColor = '#38bdf8';
+    this.ctx.shadowColor = '#ff2bd1';
     this.ctx.shadowBlur = 14;
     this.ctx.lineWidth = 1.2;
     this.ctx.beginPath();
