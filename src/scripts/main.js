@@ -177,28 +177,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // 13. Dual Tilted Speaker Card Switcher
   const speakerData = {
     '1': {
-      name: 'PROMPT SPECIALIST',
-      role: 'AI Software Engineer · Prompt Architect',
-      img: '/images/speaker1.svg',
-      desc: 'Learn practical techniques in prompt engineering, LLM orchestration, and AI-powered coding assistants that elevate how modern developers design, write, and debug software.'
+      name: 'AMY ARANETA',
+      role: 'Software Engineer II @ Propeller',
+      img: '/speaker/amy.JPEG',
+      desc: 'Amy Araneta is a Software Engineer II at Propeller, where she builds mining analytics solutions that turn complex 3D and survey data into practical tools. She is also a tech content creator and builder who shares practical lessons on software engineering, AI, and career growth. She recently built Stackinfolio, a build-in-public platform now used by over 1,000 developers.'
     },
     '2': {
-      name: 'SOLUTIONS ARCHITECT',
-      role: 'Full-Stack Developer · Solutions Engineer',
-      img: '/images/speaker2.svg',
-      desc: 'By integrating generative AI APIs and rapid prototyping toolchains, modern engineers can transform architectural blueprints into production-ready web apps in record time.'
+      name: 'MARIA ALEANA DE LEON',
+      role: 'AI & Automation Specialist · Founder, Resumie.io',
+      img: '/speaker/maria.PNG',
+      desc: 'Maria Aleana De Leon is a third-year Mechanical Engineering student, AI and automation specialist, and founder of Resumie.io. She currently works as Chief of Staff at AlgaTrop and as a Medical-Legal Operations Manager for Dr. Patel Medical Corporation in Canada. Her work spans AI, automation, legal and healthcare operations, biotechnology, digital product development, and business systems. She also builds practical AI-powered tools and workflows designed to make complex work simpler and more efficient.'
     },
     '3': {
-      name: 'DEVSECOPS LEAD',
-      role: 'Software Architect · Engineering Lead',
-      img: '/images/speaker3.svg',
-      desc: 'From automated test synthesis and intelligent code reviews to CI/CD pipeline optimization, AI elevates engineering velocity without compromising software quality.'
+      name: 'DOM FERNANDEZ',
+      role: 'Test Automation Engineering Specialist · IT Instructor',
+      img: '/speaker/domfernandez.jpg',
+      desc: 'Dom Fernandez is a Test Automation Engineering Specialist and Quality Engineering practitioner with 8+ years of experience in software quality, test automation, and enterprise technology. Experienced in building QA strategies, leading quality initiatives, and applying AI-driven approaches to testing. Also an IT Instructor passionate about responsible AI adoption and sharing industry practices with the next generation of technology professionals.'
     },
     '4': {
-      name: 'TECH ADVOCATE & EDUCATOR',
-      role: 'Technology Leader · Developer Advocate',
-      img: '/images/speaker4.svg',
-      desc: "The future belongs to engineers who leverage AI as a cognitive multiplier. Building an AI-ready developer portfolio is your key to thriving in tomorrow's tech industry."
+      name: 'DANIEL LUIS SAHAGUN',
+      role: 'Full Stack Engineer Intern · BS IT (System Development)',
+      img: '/speaker/Daniel-luis.JPG',
+      desc: 'Daniel Luis Sahagun is a fourth-year BS Information Technology student majoring in System Development at De La Salle Lipa, currently working as a Software Development Intern at Dayou, and will be joining Manulife IT Delivery Center Asia as a Full Stack Engineer Intern. Beyond software development, he previously served as the Executive President of the Junior Philippine Computer Society – De La Salle Lipa Chapter. His work focuses on full-stack development and AI-assisted software engineering workflows, and he is also a two-time national hackathon finalist, including a Top 30 finish at the eGovPH Hackathon 2026.'
     }
   };
 

@@ -39,6 +39,7 @@
       <nav class="main-nav" id="main-nav">
         <a href="#about" class="nav-link">ABOUT</a>
         <a href="#speakers" class="nav-link">SPEAKERS</a>
+        <a href="#program-flow" class="nav-link">RUNDOWN</a>
         <a href="#program" class="nav-link">PROGRAM</a>
         <a href="#sponsors" class="nav-link">PARTNERS</a>
         <a href="#faq" class="nav-link">FAQ</a>
@@ -58,91 +59,41 @@
     <section id="hero" class="hero-section">
       <div class="container hero-container">
 
-        <!-- Top Header Brand Badge -->
-        <div class="hero-brand-top reveal-init">
-          <img src="/images/devcon-manila-white.png" alt="DEVCON Manila Chapter" class="devcon-logo hero-logo">
-        </div>
-
         <!-- 3D Pixel Arcade Titles: CODE SMARTER -->
         <div class="hero-title-group reveal-init delay-1">
           <h1 class="pixel-arcade-title">
             <span class="pixel-code-block" data-text="CODE">CODE</span>
             <span class="pixel-smarter-block" data-text="SMARTER">SMARTER</span>
           </h1>
+          <!-- Official Tagline : directly under the CODE SMARTER title -->
+          <div class="hero-bottom-tagline">
+            <h2>CODE SMARTER. BUILD FASTER. SHIP THE FUTURE.</h2>
+          </div>
         </div>
 
-        <!-- Poster Visual Artwork Stage -->
+        <!-- Poster Visual Artwork Stage : LEFT bracket | CENTER title glow | RIGHT bracket -->
         <div class="hero-cyber-stage reveal-init delay-2">
-          
-          <!-- Central Digital Perspective Runway -->
-          <div class="cyber-runway-perspective">
-            <div class="runway-starburst"></div>
-            <div class="runway-grid-plane"></div>
-            <div class="runway-light-beams"></div>
-          </div>
 
-          <!-- Top-Right Wireframe Hand -->
-          <div class="cyber-hand-wireframe">
-            <svg viewBox="0 0 320 320" class="hand-svg" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="handMesh" width="13" height="13" patternUnits="userSpaceOnUse">
-                  <path d="M13 0 L0 0 0 13" fill="none" stroke="#ff2bd1" stroke-width="1.1" opacity="0.95"/>
-                </pattern>
-                <linearGradient id="meshEdge" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#ff2bd1"/>
-                  <stop offset="60%" stop-color="#ff5cb8"/>
-                  <stop offset="100%" stop-color="#a21cff"/>
-                </linearGradient>
-              </defs>
-              <g transform="rotate(214 160 160)" fill="url(#handMesh)" stroke="url(#meshEdge)" stroke-width="2">
-                <ellipse cx="160" cy="222" rx="64" ry="70"/>
-                <rect x="110" y="92"  width="31" height="132" rx="15.5"/>
-                <rect x="146" y="76"  width="31" height="148" rx="15.5"/>
-                <rect x="182" y="92"  width="31" height="132" rx="15.5"/>
-                <rect x="217" y="122" width="28" height="102" rx="14"/>
-                <rect x="70"  y="164" width="29" height="92"  rx="14.5" transform="rotate(-32 84 210)"/>
-              </g>
-            </svg>
-          </div>
-
-          <!-- Bottom-Left Smooth Cyber Hand -->
-          <div class="cyber-hand-smooth">
-            <svg viewBox="0 0 320 320" class="hand-svg" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="cyberHandGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%"   stop-color="#2a0a54"/>
-                  <stop offset="35%"  stop-color="#7c2bff"/>
-                  <stop offset="68%"  stop-color="#ff2bd1"/>
-                  <stop offset="88%"  stop-color="#ff9ddf"/>
-                  <stop offset="100%" stop-color="#ffffff"/>
-                </linearGradient>
-                <filter id="cyberGlow" x="-40%" y="-40%" width="180%" height="180%">
-                  <feGaussianBlur stdDeviation="5" result="b"/>
-                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
-              <g transform="rotate(38 160 160)" fill="url(#cyberHandGrad)" filter="url(#cyberGlow)">
-                <!-- palm + curled fingers, index extended toward the light -->
-                <ellipse cx="150" cy="228" rx="62" ry="66"/>
-                <rect x="128" y="52"  width="34" height="180" rx="17"/>
-                <rect x="168" y="150" width="32" height="86"  rx="16"/>
-                <rect x="200" y="166" width="30" height="72"  rx="15"/>
-                <rect x="96"  y="176" width="30" height="80"  rx="15" transform="rotate(-30 111 216)"/>
-              </g>
-              <circle cx="215" cy="72" r="6" fill="#ffffff" filter="url(#cyberGlow)"/>
-            </svg>
-          </div>
-
-          <!-- Floating 3D Keycap Left: {} -->
-          <div class="keycap-3d keycap-left floating-anim-1">
-            <div class="keycap-cube">
-              <div class="cube-face cube-top">{ }</div>
-              <div class="cube-face cube-front"></div>
-              <div class="cube-face cube-right"></div>
+          <!-- ===== LEFT BRACKET : interacting hand ===== -->
+          <div class="hero-side hero-side-left">
+            <!-- Floating 3D Keycap: {} -->
+            <div class="keycap-3d keycap-left floating-anim-1">
+              <div class="keycap-cube">
+                <div class="cube-face cube-top">{ }</div>
+                <div class="cube-face cube-front"></div>
+                <div class="cube-face cube-right"></div>
+              </div>
             </div>
           </div>
 
-          <!-- Floating 3D Keycap Right: AI -->
+          <!-- ===== CENTER : title focal glow spacer ===== -->
+          <div class="hero-side hero-side-center"></div>
+
+          <!-- ===== RIGHT BRACKET : AI Assist + chip + date card ===== -->
+          <div class="hero-side hero-side-right">
+          <!-- (AI orb removed) -->
+
+          <!-- Floating 3D Keycap: AI -->
           <div class="keycap-3d keycap-right floating-anim-2">
             <div class="keycap-cube">
               <div class="cube-face cube-top">AI</div>
@@ -151,64 +102,8 @@
             </div>
           </div>
 
-          <!-- Left HUD Terminal Panel -->
-          <div class="hero-hud-card hud-left">
-            <div class="hud-pixel-invader">
-              <svg viewBox="0 0 24 18" width="26" height="19" fill="#00f0ff">
-                <path d="M8 0h8v2H8zm-4 2h16v2H4zm-2 2h20v4h-4v2h2v4h-2v-2h-2v2H8v-2H6v2H4v-4h2V8H2zm4 2h4v2H6zm8 0h4v2h-4zm-8 8h2v2H6zm10 0h2v2h-2z"/>
-              </svg>
-            </div>
-            <div class="hud-code-lines">
-              <div>&gt; BUILD</div>
-              <div>&gt; ITERATE</div>
-              <div>&gt; AUTOMATE</div>
-              <div>&gt; DEPLOY</div>
-              <div>&gt; REPEAT</div>
-            </div>
-          </div>
+          </div><!-- /hero-side-right -->
 
-          <!-- Right HUD Terminal Panel (AI Assist + Mascot) -->
-          <div class="hero-hud-card hud-right">
-            <div class="hud-terminal-header">
-              <span class="hud-title"># AI ASSIST</span>
-            </div>
-            <div class="hud-syntax-preview">
-              <span class="syn-kw">const</span> <span class="syn-fn">future</span> = <span class="syn-fn">devcon</span>();<br>
-              <span class="syn-fn">future</span>.<span class="syn-prop">build</span>();
-            </div>
-            <div class="hud-robot-mascot">
-              <div class="robot-antenna"></div>
-              <div class="robot-head">
-                <div class="robot-eye eye-left"></div>
-                <div class="robot-eye eye-right"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Angled Neon Schedule Badge -->
-          <div class="hero-angled-badge">
-            <div class="badge-content">
-              <div class="badge-date-time">
-                <span class="badge-date">September 6, 2026</span>
-                <span class="badge-time">1 PM to 5 PM</span>
-              </div>
-              <div class="badge-gmeet-icon" title="Google Meet">
-                <svg viewBox="0 0 48 48" width="28" height="28">
-                  <path fill="#00832d" d="M37 24v11c0 1.66-1.34 3-3 3H14c-1.66 0-3-1.34-3-3V13c0-1.66 1.34-3 3-3h20c1.66 0 3 1.34 3 3v11z"/>
-                  <path fill="#0066da" d="M37 24l9-7v14l-9-7z"/>
-                  <path fill="#e53935" d="M34 10H14c-1.66 0-3 1.34-3 3v4h26v-4c0-1.66-1.34-3-3-3z"/>
-                  <path fill="#ffba00" d="M37 31H11v4c0 1.66 1.34 3 3 3h20c1.66 0 3-1.34 3-3v-4z"/>
-                  <path fill="#00ac47" d="M11 17h26v14H11z"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Official Tagline -->
-        <div class="hero-bottom-tagline reveal-init delay-3">
-          <h2>CODE SMARTER. BUILD FASTER. SHIP THE FUTURE.</h2>
         </div>
 
         <!-- Primary Action CTA -->
@@ -312,9 +207,8 @@
     <section id="speakers" class="section speakers-section">
       <div class="container">
         
-        <!-- Header with Manila Chapter + Pixel Emblem -->
+        <!-- Header with Pixel Emblem -->
         <div class="speakers-header-wrap center reveal-init">
-          <img src="/images/devcon-manila-white.png" alt="DEVCON Manila Chapter" class="devcon-logo mini-logo">
         <div class="speakers-arcade-badge">
             <span class="sab-code">CODE</span>
             <span class="sab-smarter">SMARTER</span>
@@ -331,10 +225,10 @@
 
         <!-- Speaker Switcher Tabs -->
         <div class="speaker-tab-nav reveal-init delay-1">
-          <button class="speaker-tab-btn active" data-speaker="1">01. PROMPT LIKE A PRO</button>
-          <button class="speaker-tab-btn" data-speaker="2">02. BUILD FASTER WITH AI</button>
-          <button class="speaker-tab-btn" data-speaker="3">03. AI WORKFLOWS</button>
-          <button class="speaker-tab-btn" data-speaker="4">04. AI-READY DEVELOPER</button>
+          <button class="speaker-tab-btn active" data-speaker="1">01. AMY ARANETA</button>
+          <button class="speaker-tab-btn" data-speaker="2">02. MARIA DE LEON</button>
+          <button class="speaker-tab-btn" data-speaker="3">03. DOM FERNANDEZ</button>
+          <button class="speaker-tab-btn" data-speaker="4">04. DANIEL SAHAGUN</button>
         </div>
 
         <!-- Dual Tilted Cards Display Area -->
@@ -375,12 +269,12 @@
               <div class="sc-watermark-text">SPEAKER</div>
               
               <div class="sc-photo-container">
-                <img id="active-speaker-img" src="/images/speaker1.svg" alt="Speaker Portrait" class="sc-photo-img">
+                <img id="active-speaker-img" src="/speaker/amy.JPEG" alt="Amy Araneta (Euphydev)" class="sc-photo-img">
               </div>
 
               <div class="sc-nameplate-wrap">
-                <h3 class="sc-arcade-name" id="active-speaker-name">PROMPT SPECIALIST</h3>
-                <span class="sc-role-badge" id="active-speaker-role">AI Software Engineer · Prompt Architect</span>
+                <h3 class="sc-arcade-name" id="active-speaker-name">AMY ARANETA</h3>
+                <span class="sc-role-badge" id="active-speaker-role">Software Engineer II @ Propeller · Euphydev</span>
               </div>
             </div>
 
@@ -401,7 +295,7 @@
               <div class="sq-quote-marks top">“</div>
 
               <p class="sq-quote-text" id="active-speaker-desc">
-                Learn practical techniques in prompt engineering, LLM orchestration, and AI-powered coding assistants that elevate how modern developers design, write, and debug software.
+                Amy Araneta, known online as Euphydev, is a Software Engineer II at Propeller, where she builds mining analytics solutions that turn complex 3D and survey data into practical tools. A tech content creator and builder, she shares practical lessons on software engineering, AI, and career growth — and recently built Stackinfolio, a build-in-public platform now used by over 1,000 developers.
               </p>
 
               <div class="sq-quote-marks bottom">”</div>
@@ -409,27 +303,96 @@
 
           </div>
 
-          <!-- Angled Neon Schedule Badge at bottom of speakers -->
-          <div class="speaker-bottom-badge">
-            <div class="badge-content">
-              <div class="badge-date-time">
-                <span class="badge-date">September 6, 2026</span>
-                <span class="badge-time">1 PM to 5 PM</span>
-              </div>
-              <div class="badge-gmeet-icon" title="Google Meet">
-                <svg viewBox="0 0 48 48" width="26" height="26">
-                  <path fill="#00832d" d="M37 24v11c0 1.66-1.34 3-3 3H14c-1.66 0-3-1.34-3-3V13c0-1.66 1.34-3 3-3h20c1.66 0 3 1.34 3 3v11z"/>
-                  <path fill="#0066da" d="M37 24l9-7v14l-9-7z"/>
-                  <path fill="#e53935" d="M34 10H14c-1.66 0-3 1.34-3 3v4h26v-4c0-1.66-1.34-3-3-3z"/>
-                  <path fill="#ffba00" d="M37 31H11v4c0 1.66 1.34 3 3 3h20c1.66 0 3-1.34 3-3v-4z"/>
-                  <path fill="#00ac47" d="M11 17h26v14H11z"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-
         </div>
 
+      </div>
+    </section>
+
+    <!-- ==============================
+         PROGRAM FLOW / RUNDOWN SECTION
+    ================================ -->
+    <section id="program-flow" class="section program-flow-section">
+      <div class="container">
+        <div class="section-header center reveal-init">
+          <div class="section-tag">
+            <span class="tag-line"></span>
+            <span>PROGRAM FLOW</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Event Rundown</h2>
+          <p class="section-subtitle">September 6, 2026 · 12:30 PM – 4:30 PM · via Google Meet</p>
+        </div>
+
+        <div class="program-flow-list reveal-init delay-1">
+          <div class="pf-row">
+            <span class="pf-time">12:30–1:00 PM</span>
+            <span class="pf-desc">Ingress, GMeet Registration &amp; Lobby Networking</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">1:00–1:05 PM</span>
+            <span class="pf-desc">Opening Prayer &amp; Community Reminders</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">1:05–1:15 PM</span>
+            <span class="pf-desc">Opening Remarks &amp; Event Introduction</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">1:15–1:25 PM</span>
+            <span class="pf-desc">Icebreaker: “Can AI Build It?” – Poll &amp; AI Trivia</span>
+          </div>
+          <div class="pf-row pf-highlight">
+            <span class="pf-time">1:25–1:55 PM</span>
+            <span class="pf-desc">Technical Talk #1: Prompt Like a Pro</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">1:55–2:00 PM</span>
+            <span class="pf-desc">Q&amp;A &amp; Speaker Certificate Awarding</span>
+          </div>
+          <div class="pf-row pf-highlight">
+            <span class="pf-time">2:00–2:30 PM</span>
+            <span class="pf-desc">Technical Talk #2: Building Applications Faster with AI</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">2:30–2:35 PM</span>
+            <span class="pf-desc">Q&amp;A &amp; Speaker Certificate Awarding</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">2:35–2:50 PM</span>
+            <span class="pf-desc">Break &amp; Community Engagement</span>
+          </div>
+          <div class="pf-row pf-highlight">
+            <span class="pf-time">2:50–3:20 PM</span>
+            <span class="pf-desc">Technical Talk #4: Becoming an AI-Ready Software Developer</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">3:20–3:25 PM</span>
+            <span class="pf-desc">Q&amp;A &amp; Speaker Certificate Awarding</span>
+          </div>
+          <div class="pf-row pf-highlight">
+            <span class="pf-time">3:25–3:45 PM</span>
+            <span class="pf-desc">Technical Talk #3: AI-Powered Development Workflow</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">3:45–3:55 PM</span>
+            <span class="pf-desc">Community Q&amp;A &amp; Open Discussion</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">3:55–4:05 PM</span>
+            <span class="pf-desc">AI Challenge, Icebreaker &amp; Partner Acknowledgements</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">4:05–4:15 PM</span>
+            <span class="pf-desc">Certificates, Recognition &amp; Participant Appreciation</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">4:15–4:20 PM</span>
+            <span class="pf-desc">Closing Remarks &amp; Call to Action</span>
+          </div>
+          <div class="pf-row">
+            <span class="pf-time">4:20–4:30 PM</span>
+            <span class="pf-desc">Virtual Photo Opportunity &amp; Official Event Close</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -649,7 +612,6 @@
         &copy; 2026 DEVCON Manila Chapter. All rights reserved.
       </div>
       <div class="footer-socials">
-        <a href="https://github.com/Qiuyuan26/devcon17" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         <a href="https://devcon.ph/manila/" target="_blank" rel="noopener noreferrer" aria-label="DEVCON Manila"><i class="fa-solid fa-globe"></i></a>
         <a href="https://www.facebook.com/devconph" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
       </div>

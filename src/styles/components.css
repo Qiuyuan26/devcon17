@@ -142,18 +142,19 @@
   background: linear-gradient(120deg, var(--neon-violet) 0%, var(--neon-magenta) 52%, var(--arc-orange) 100%);
   background-size: 200% auto;
   color: #ffffff;
-  padding: 17px 38px;
-  font-size: 0.95rem;
-  letter-spacing: 0.14em;
+  padding: 14px 32px;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   border: 1px solid rgba(255, 190, 245, 0.65);
   box-shadow:
-    0 0 26px rgba(255, 43, 209, 0.6),
-    0 0 52px rgba(162, 28, 255, 0.34),
+    0 0 18px rgba(255, 43, 209, 0.42),
+    0 0 38px rgba(162, 28, 255, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
   position: relative;
   overflow: hidden;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast), background-position 0.5s ease;
 }
 
 .btn-arcade-glow::after {
@@ -205,11 +206,12 @@
    HERO — poster artwork stage
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding-top: 132px;
-  padding-bottom: 80px;
+  --nav-h: 80px;
+  padding-top: calc(var(--nav-h) + clamp(4px, 1vh, 14px));
+  padding-bottom: clamp(14px, 2.5vh, 34px);
   position: relative;
   text-align: center;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--nav-h));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -250,15 +252,21 @@
 .hero-brand-top { margin-bottom: 18px; }
 
 /* ---- The wordmark: cream→gold face, magenta pixel outline, violet extrude ---- */
-.hero-title-group { margin-bottom: 18px; }
+.hero-title-group {
+  position: relative;
+  z-index: 6;
+  margin-bottom: clamp(4px, 1vh, 10px);
+  transform: translateY(clamp(80px, 14vh, 170px));
+}
+.pixel-arcade-title { position: relative; z-index: 6; }
 
 .pixel-arcade-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: clamp(0px, 0.2vh, 4px);
   margin: 0;
-  line-height: 1;
+  line-height: 0.95;
 }
 
 .pixel-code-block,
@@ -286,8 +294,9 @@
 
 .pixel-code-block {
   font-family: var(--font-pixel);
-  font-size: clamp(2.9rem, 9vw, 6.6rem);
+  font-size: clamp(3rem, 8vw, 6.4rem);
   letter-spacing: 0.08em;
+  padding-left: 0.08em;
   color: transparent;
   -webkit-text-fill-color: transparent;
   text-shadow:
@@ -307,10 +316,11 @@
 
 .pixel-smarter-block {
   font-family: var(--font-arcade);
-  font-size: clamp(2.2rem, 6.6vw, 5.1rem);
+  font-size: clamp(2.4rem, 6.8vw, 5.4rem);
   font-weight: 700;
   letter-spacing: 0.18em;
   margin-top: 2px;
+  padding-left: 0.18em;
   color: transparent;
   -webkit-text-fill-color: transparent;
   text-shadow:
@@ -331,19 +341,45 @@
   100% { filter: drop-shadow(0 0 44px rgba(255, 43, 209, 0.95)); }
 }
 
-/* ---- Artwork stage ---- */
+/* ---- Artwork stage : a positioning CANVAS. The title glow occupies the
+   centre; the two side GROUPS are absolutely placed to frame it like a poster.
+   Everything scales/moves with clamp()+vw so it compresses inward on smaller
+   screens instead of stacking vertically. ---- */
 .hero-cyber-stage {
   position: relative;
   width: 100%;
-  max-width: 980px;
-  height: 520px;
-  margin: 6px auto 26px;
+  max-width: 1320px;
+  height: clamp(150px, 20vh, 220px);
+  margin: clamp(4px, 1vh, 14px) auto clamp(10px, 2vh, 22px);
   perspective: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 3;
+  box-sizing: border-box;
 }
+
+/* Each side is an absolutely-positioned GROUP that hugs the title edge.
+   Given an explicit height so the art can be vertically anchored/lifted. */
+.hero-side {
+  position: absolute;
+  top: 0;
+  height: clamp(180px, 24vh, 260px);
+  display: flex;
+  flex-direction: column;
+  width: clamp(150px, 20vw, 260px);
+  z-index: 4;
+}
+.hero-side-left {
+  left: clamp(0.5rem, 3vw, 4rem);
+  transform: translateY(clamp(-90px, -10vh, -40px));
+  align-items: flex-start;
+  gap: clamp(8px, 1.4vh, 16px);
+}
+.hero-side-right {
+  right: clamp(0.5rem, 3vw, 4rem);
+  transform: translateY(clamp(-90px, -10vh, -40px));
+  align-items: flex-end;
+  gap: clamp(8px, 1.4vh, 16px);
+}
+.hero-side-center { display: none; }
 
 .cyber-runway-perspective {
   position: absolute;
@@ -418,14 +454,17 @@
 }
 
 /* ---- Hands ---- */
+/* AI chip : medium, sits behind & slightly above the AI Assist card */
 .cyber-hand-wireframe {
   position: absolute;
-  top: -15px;
-  right: 12%;
-  width: 310px;
-  height: 310px;
+  top: 0;
+  right: clamp(-20px, -2vw, -6px);
+  width: clamp(120px, 12vw, 180px);
+  height: clamp(120px, 12vw, 180px);
+  z-index: 1;
+  opacity: 0.9;
   pointer-events: none;
-  filter: drop-shadow(0 0 24px rgba(255, 43, 209, 0.95));
+  filter: drop-shadow(0 0 22px rgba(255, 43, 209, 0.9));
   animation: handWireframeFloat 5s ease-in-out infinite alternate;
 }
 
@@ -434,14 +473,17 @@
   100% { transform: translate(-9px, 11px) rotate(-2deg); }
 }
 
+/* Neon hand : left decorative element, lifted beside the title */
 .cyber-hand-smooth {
   position: absolute;
-  bottom: 18px;
-  left: 11%;
-  width: 310px;
-  height: 310px;
+  top: 0;
+  left: clamp(-20px, -2vw, -6px);
+  width: clamp(130px, 13vw, 190px);
+  height: clamp(130px, 13vw, 190px);
+  z-index: 1;
+  opacity: 0.92;
   pointer-events: none;
-  filter: drop-shadow(0 0 32px rgba(162, 28, 255, 0.9));
+  filter: drop-shadow(0 0 30px rgba(162, 28, 255, 0.85));
   animation: handSmoothFloat 5s ease-in-out infinite alternate;
 }
 
@@ -453,16 +495,17 @@
 /* ---- Floating isometric keycaps ---- */
 .keycap-3d {
   position: absolute;
-  width: 78px;
-  height: 78px;
+  width: clamp(54px, 5vw, 74px);
+  height: clamp(54px, 5vw, 74px);
   perspective: 600px;
   z-index: 6;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.keycap-left  { bottom: 6px; left: 22%; }
-.keycap-right { bottom: 6px; right: 22%; }
+/* Small decorative tiles : smallest layer, tucked near the hand / AI card */
+.keycap-left  { position: absolute; top: clamp(120px, 15vw, 190px); right: clamp(-6px, -0.5vw, 6px); left: auto; bottom: auto; z-index: 3; }
+.keycap-right { position: absolute; top: clamp(-14px, -1.5vw, -4px); left: clamp(-10px, -1vw, 4px); right: auto; bottom: auto; z-index: 3; }
 
 .keycap-cube {
   width: 100%;
@@ -537,7 +580,8 @@
 
 /* ---- HUD terminal panels ---- */
 .hero-hud-card {
-  position: absolute;
+  position: relative;
+  max-width: clamp(160px, 15vw, 210px);
   background: linear-gradient(150deg, rgba(20, 10, 56, 0.92), rgba(10, 3, 38, 0.9));
   border: 1px solid rgba(34, 225, 255, 0.45);
   border-radius: var(--radius-md);
@@ -557,13 +601,15 @@
 }
 
 .hud-left {
-  top: 58px;
-  left: 1%;
+  position: relative;
+  z-index: 5;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   text-align: left;
+  transform: rotate(-1.5deg);
 }
 
 .hud-code-lines {
@@ -576,14 +622,16 @@
 }
 
 .hud-right {
-  top: 58px;
-  right: 1%;
+  position: relative;
+  z-index: 5;
+  align-self: flex-end;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
   text-align: left;
   animation-delay: -3s;
+  transform: rotate(1.5deg);
 }
 
 .hud-terminal-header {
@@ -662,9 +710,9 @@
 
 /* ---- Angled neon schedule badge (the poster's date chip) ---- */
 .hero-angled-badge {
-  position: absolute;
-  bottom: 92px;
-  right: 5%;
+  position: relative;
+  z-index: 6;
+  align-self: flex-end;
   background: linear-gradient(140deg, rgba(24, 6, 58, 0.96), rgba(8, 2, 26, 0.96));
   border: 2px solid var(--neon-magenta);
   border-radius: var(--radius-md);
@@ -701,30 +749,38 @@
 }
 
 /* ---- Tagline ---- */
+.hero-bottom-tagline {
+  margin-top: clamp(8px, 1.8vh, 20px);
+  max-width: clamp(280px, 46vw, 560px);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 6;
+}
 .hero-bottom-tagline h2 {
   font-family: var(--font-arcade);
-  font-size: clamp(1rem, 2.6vw, 1.55rem);
+  font-size: clamp(0.9rem, 2.2vw, 1.35rem);
   font-weight: 700;
   letter-spacing: 0.14em;
   color: #ffffff;
   text-shadow:
-    0 0 12px rgba(255, 43, 209, 0.9),
-    0 0 30px rgba(162, 28, 255, 0.7),
-    0 0 60px rgba(34, 225, 255, 0.35);
+    0 0 10px rgba(255, 43, 209, 0.85),
+    0 0 26px rgba(162, 28, 255, 0.6),
+    0 0 52px rgba(34, 225, 255, 0.3);
   margin: 0;
   text-transform: uppercase;
   line-height: 1.5;
 }
 
-.hero-cta-actions { margin: 26px 0 34px; }
+.hero-cta-actions { margin: clamp(-16px, -1vh, 4px) 0 clamp(28px, 4vh, 48px); }
 
 /* ---- Event details bar ---- */
 .hero-details-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  max-width: 1020px;
-  padding: 20px 36px;
+  max-width: 880px;
+  padding: clamp(20px, 3vh, 30px) 30px;
   border-radius: var(--radius-lg);
   background: linear-gradient(120deg, rgba(20, 10, 56, 0.82), rgba(10, 3, 38, 0.8));
   backdrop-filter: blur(20px);
@@ -733,7 +789,7 @@
     0 22px 55px rgba(0, 0, 0, 0.65),
     inset 0 0 26px rgba(162, 28, 255, 0.12),
     0 0 30px rgba(255, 43, 209, 0.14);
-  margin: 0 auto 36px auto;
+  margin: 0 auto;
   animation: detailsBarFloat 6s ease-in-out infinite alternate;
   position: relative;
   overflow: hidden;
@@ -771,30 +827,33 @@
 }
 
 .details-icon {
-  font-size: 1.45rem;
+  font-size: 1.3rem;
   color: var(--neon-cyan);
   flex-shrink: 0;
-  filter: drop-shadow(0 0 10px var(--neon-cyan));
+  filter: drop-shadow(0 0 8px var(--neon-cyan));
 }
 
-.details-info { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.details-info { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
 
 .details-title {
   font-family: var(--font-title);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   color: #ffffff;
+  line-height: 1;
   white-space: nowrap;
 }
 
 .details-sub {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   color: var(--text-muted);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  line-height: 1;
   white-space: nowrap;
+  opacity: 0.85;
 }
 
 /* ---- Scroll prompt ---- */
@@ -804,16 +863,17 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-arcade);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.24em;
   color: var(--text-dim);
   text-transform: uppercase;
-  margin-top: 10px;
+  margin-top: clamp(12px, 2.4vh, 26px);
+  opacity: 0.6;
   transition: all var(--trans-fast);
 }
 
-.scroll-prompt:hover { color: var(--neon-cyan); }
+.scroll-prompt:hover { color: var(--neon-cyan); opacity: 1; }
 
 .mouse-icon {
   width: 25px;
@@ -1112,6 +1172,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
   filter: contrast(1.1) brightness(1.05) saturate(1.1);
 }
 
@@ -1747,14 +1809,73 @@
 
   .section { padding: 80px 0; }
 
-  .hero-cyber-stage { height: 430px; }
-  .cyber-hand-wireframe { width: 210px; height: 210px; right: 0; top: -10px; }
-  .cyber-hand-smooth   { width: 210px; height: 210px; left: 0; bottom: 10px; }
-  .keycap-left  { left: 4%; bottom: 30px; }
-  .keycap-right { right: 4%; bottom: 30px; }
+  /* ================= MOBILE / TABLET HERO COMPOSITION =================
+     On phones/tablets, drop the boxed panels (BUILD card, AI Assist card,
+     date badge) and keep only the decorative art elements (neon hand, AI
+     chip, keycap tiles) arranged around the title. Clean, uncluttered. */
+  .hero-cyber-stage {
+    height: clamp(105px, 15vh, 150px);
+    max-width: 100%;
+    margin: 0 auto clamp(4px, 1vh, 8px);
+    box-sizing: border-box;
+  }
 
-  .hero-hud-card { display: none; }
-  .hero-angled-badge { bottom: 14px; right: 50%; transform: translateX(50%); padding: 11px 18px; }
+  .hero-side {
+    position: absolute;
+    top: 50%;
+    width: clamp(110px, 30vw, 170px);
+    transform: translateY(-50%);
+    gap: 0;
+  }
+  .hero-side-left  { left: clamp(2px, 2vw, 18px);  align-items: flex-start; transform: translateY(-50%); }
+  .hero-side-right { right: clamp(2px, 2vw, 18px); align-items: flex-end;   transform: translateY(-50%); }
+  .hero-side-center { display: none; }
+
+  /* Hide the boxed panels entirely on mobile — keep only the art */
+  .hero-hud-card,
+  .hero-angled-badge { display: none; }
+
+  /* Neon hand : left element, lifted up beside the title */
+  .cyber-hand-smooth {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    top: auto;
+    left: clamp(-10px, 2vw, 24px);
+    transform: translateY(clamp(20px, 8vw, 60px));
+    width: clamp(120px, 34vw, 168px);
+    height: clamp(120px, 34vw, 168px);
+    opacity: 0.95;
+    z-index: 1;
+  }
+  /* AI orb : right element, lifted up beside the title — smaller on phones */
+  .cyber-hand-wireframe {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    top: auto;
+    right: clamp(-6px, 2vw, 18px);
+    left: auto;
+    transform: translateY(clamp(20px, 8vw, 60px));
+    width: clamp(72px, 20vw, 104px);
+    height: clamp(72px, 20vw, 104px);
+    opacity: 0.92;
+    z-index: 1;
+  }
+  /* Floating keycap tiles as accents near each element — smaller on phones */
+  .keycap-left, .keycap-right {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    top: auto;
+    width: clamp(34px, 9vw, 46px);
+    height: clamp(34px, 9vw, 46px);
+  }
+  .keycap-left  { transform: translateY(clamp(-10px, 2vw, 20px)) scale(0.62); transform-origin: top left; left: clamp(24px, 14vw, 84px); right: auto; }
+  .keycap-right { transform: translateY(clamp(110px, 32vw, 180px)) scale(0.62); transform-origin: top right; right: clamp(24px, 14vw, 84px); left: auto; }
+
+  /* Pull the CTA up closer to the artwork on mobile */
+  .hero-cta-actions { margin: clamp(2px, 0.6vh, 8px) 0 clamp(10px, 1.8vh, 16px); }
 
   .hero-details-bar {
     grid-template-columns: 1fr;
@@ -1780,14 +1901,14 @@
   .arcade-grid-floor { height: 42vh; opacity: 0.4; }
 }
 
-@media (max-width: 480px) {
-  .hero-section { padding-top: 100px; }
-  .hero-cyber-stage { height: 360px; }
-  .cyber-hand-wireframe, .cyber-hand-smooth { width: 170px; height: 170px; }
-  .keycap-3d { width: 62px; height: 62px; }
-  .cube-top { width: 52px; height: 52px; font-size: 1.2rem; }
-  .cube-front { width: 52px; transform: rotateX(-90deg) translateZ(30px) translateY(12px); }
-  .cube-right { height: 52px; transform: rotateY(90deg) translateZ(30px) translateX(12px); }
+/* Very small phones (<=430px): keep the decorative art tidy around the title. */
+@media (max-width: 430px) {
+  .hero-section { padding-top: calc(var(--nav-h) + 10px); }
+  .hero-cyber-stage { height: clamp(150px, 26vh, 220px); }
+  .hero-side-left  { left: clamp(2px, 1.5vw, 10px); }
+  .hero-side-right { right: clamp(2px, 1.5vw, 10px); }
+  .cyber-hand-smooth   { width: clamp(84px, 28vw, 130px); height: clamp(84px, 28vw, 130px); }
+  .cyber-hand-wireframe{ width: clamp(80px, 26vw, 120px); height: clamp(80px, 26vw, 120px); }
   .btn-arcade-glow { width: 100%; padding: 14px 20px; font-size: 0.85rem; }
   .speaker-tab-btn { font-size: 0.72rem; padding: 9px 15px; }
   .speaker-portrait-card, .speaker-quote-card { padding: 26px 20px; }
@@ -1795,4 +1916,123 @@
   .devcon-logo.hero-logo { height: 38px; }
   .runway-starburst::before { width: 200px; }
   .runway-starburst::after  { height: 180px; }
+}
+
+/* Short desktop viewports (e.g. 1366x768): tighten the hero vertical rhythm
+   so the whole composition fits without clipping. */
+@media (min-width: 1024px) and (max-height: 820px) {
+  .hero-section { padding-top: calc(var(--nav-h) + 2px); padding-bottom: 12px; }
+  .hero-cyber-stage { height: clamp(190px, 26vh, 240px); margin-top: 2px; }
+  .pixel-code-block { font-size: clamp(2rem, 5vw, 3.6rem); }
+  .pixel-smarter-block { font-size: clamp(1.5rem, 3.6vw, 2.7rem); }
+  .hero-cta-actions { margin: 10px 0 14px; }
+}
+
+/* --------------------------------------------------------------------------
+   PROGRAM FLOW / EVENT RUNDOWN
+   -------------------------------------------------------------------------- */
+.program-flow-section {
+  padding: 90px 0;
+  position: relative;
+}
+
+.program-flow-section .section-subtitle {
+  margin-top: 14px;
+  font-family: var(--font-arcade);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(34, 225, 255, 0.55);
+}
+
+.program-flow-list {
+  max-width: 760px;
+  margin: 46px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pf-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(120deg, rgba(24, 6, 58, 0.72), rgba(8, 2, 26, 0.72));
+  border: 1px solid rgba(162, 28, 255, 0.35);
+  box-shadow: inset 0 0 18px rgba(162, 28, 255, 0.12);
+  transition: transform var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast);
+}
+
+.pf-row:hover {
+  transform: translateX(6px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 26px rgba(34, 225, 255, 0.28), inset 0 0 18px rgba(34, 225, 255, 0.12);
+}
+
+.pf-time {
+  font-family: var(--font-arcade);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px rgba(34, 225, 255, 0.55);
+  white-space: nowrap;
+}
+
+.pf-desc {
+  font-size: 0.98rem;
+  color: var(--text-soft, #e8e0ff);
+  line-height: 1.5;
+}
+
+/* Highlighted technical talks */
+.pf-row.pf-highlight {
+  background: linear-gradient(120deg, rgba(124, 43, 255, 0.28), rgba(255, 43, 209, 0.16));
+  border-color: var(--neon-magenta);
+  box-shadow: inset 0 0 22px rgba(255, 43, 209, 0.18);
+}
+
+.pf-row.pf-highlight .pf-time {
+  color: var(--neon-magenta);
+  text-shadow: 0 0 10px rgba(255, 43, 209, 0.7);
+}
+
+.pf-row.pf-highlight .pf-desc {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .pf-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 13px 18px;
+  }
+  .pf-desc { font-size: 0.9rem; }
+}
+
+/* --------------------------------------------------------------------------
+   HERO AI NEURAL CHIP (replaces top-right wireframe hand)
+   -------------------------------------------------------------------------- */
+.cyber-ai-chip {
+  filter: drop-shadow(0 0 22px rgba(255, 43, 209, 0.85))
+          drop-shadow(0 0 34px rgba(34, 225, 255, 0.35));
+}
+
+.cyber-ai-chip .hand-svg circle {
+  animation: aiNodePulse 2.4s ease-in-out infinite alternate;
+}
+.cyber-ai-chip .hand-svg circle:nth-child(2n) {
+  animation-delay: 0.6s;
+}
+.cyber-ai-chip .hand-svg circle:nth-child(3n) {
+  animation-delay: 1.2s;
+}
+
+@keyframes aiNodePulse {
+  0%   { opacity: 0.55; }
+  100% { opacity: 1; }
 }

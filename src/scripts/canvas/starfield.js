@@ -522,12 +522,9 @@ export class StarfieldEngine {
     this.ctx.fillRect(0, 0, this.width, this.height);
 
     this.drawDreamyNebulae();
-    this.drawMoon();
     this.drawPlanets();
     this.drawStars();
-    this.drawHyperStars();
     this.drawShootingStars();
-    this.drawDreamParticles();
     this.drawConstellations();
     this.drawSubtleHorizon();
 
