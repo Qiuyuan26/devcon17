@@ -772,7 +772,7 @@
   line-height: 1.5;
 }
 
-.hero-cta-actions { margin: clamp(-16px, -1vh, 4px) 0 clamp(28px, 4vh, 48px); }
+.hero-cta-actions { margin: clamp(-55px, -5vh, -25px) 0 clamp(28px, 4vh, 48px); }
 
 /* ---- Event details bar ---- */
 .hero-details-bar {
@@ -1925,7 +1925,7 @@
   .hero-cyber-stage { height: clamp(190px, 26vh, 240px); margin-top: 2px; }
   .pixel-code-block { font-size: clamp(2rem, 5vw, 3.6rem); }
   .pixel-smarter-block { font-size: clamp(1.5rem, 3.6vw, 2.7rem); }
-  .hero-cta-actions { margin: 10px 0 14px; }
+  .hero-cta-actions { margin: -45px 0 14px; }
 }
 
 /* --------------------------------------------------------------------------

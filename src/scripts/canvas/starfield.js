@@ -43,19 +43,38 @@ export class StarfieldEngine {
       this.mouse.active = true;
     });
 
-    this.createStars(480);
-    this.createHyperStars(16);
-    this.createConstellationNodes(38);
-    this.createDreamParticles(50);
+    // Scale the scene to the device: lighter on phones/tablets so it never lags.
+    const isMobile = window.innerWidth <= 767;
+    const isTablet = window.innerWidth > 767 && window.innerWidth <= 1024;
+    const starCount = isMobile ? 130 : isTablet ? 260 : 480;
+    const nodeCount = isMobile ? 0 : isTablet ? 22 : 38;
+
+    this.createStars(starCount);
+    this.createConstellationNodes(nodeCount);
     this.createDreamyNebulae();
     this.createShootingStars();
+
+    // Cap frame rate on smaller screens; 0 = uncapped (60fps) on desktop.
+    this._frameInterval = (isMobile || isTablet) ? 1000 / 30 : 0;
+    this._lastFrame = 0;
+
+    // Respect users who prefer reduced motion: draw one static frame, no loop.
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { this.animate(); this.destroy(); return; }
 
     this.animate();
   }
 
   resize() {
-    this.width = this.canvas.width = window.innerWidth;
-    this.height = this.canvas.height = window.innerHeight;
+    // Cap the pixel ratio so retina phones don't render a huge canvas (major lag).
+    const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 767 ? 1 : 1.5);
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+    this.canvas.width = Math.floor(this.width * dpr);
+    this.canvas.height = Math.floor(this.height * dpr);
+    this.canvas.style.width = this.width + 'px';
+    this.canvas.style.height = this.height + 'px';
+    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   createStars(count) {
@@ -505,7 +524,15 @@ export class StarfieldEngine {
     this.ctx.shadowBlur = 0;
   }
 
-  animate() {
+  animate(now = 0) {
+    this.animId = requestAnimationFrame((t) => this.animate(t));
+
+    // Throttle to ~30fps on phones to save battery/CPU (smooth enough for ambient bg)
+    if (this._frameInterval) {
+      if (now - (this._lastFrame || 0) < this._frameInterval) return;
+      this._lastFrame = now;
+    }
+
     this.ctx.clearRect(0, 0, this.width, this.height);
 
     // Smooth parallax mouse interpolation
@@ -525,10 +552,8 @@ export class StarfieldEngine {
     this.drawPlanets();
     this.drawStars();
     this.drawShootingStars();
-    this.drawConstellations();
+    if (this.constellationNodes.length) this.drawConstellations();
     this.drawSubtleHorizon();
-
-    this.animId = requestAnimationFrame(() => this.animate());
   }
 
   destroy() {

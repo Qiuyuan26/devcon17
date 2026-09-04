@@ -208,6 +208,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const activeImgEl = document.getElementById('active-speaker-img');
   const activeDescEl = document.getElementById('active-speaker-desc');
 
+  // Preload every speaker photo up front so switching tabs is instant (no lag/delay).
+  Object.values(speakerData).forEach(d => {
+    if (d.img) { const im = new Image(); im.src = d.img; }
+  });
+  if (activeImgEl) activeImgEl.decoding = 'async';
+
   speakerTabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const spId = btn.getAttribute('data-speaker');
