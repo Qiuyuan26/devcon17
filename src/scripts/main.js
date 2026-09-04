@@ -173,5 +173,55 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 13. Dual Tilted Speaker Card Switcher
+  const speakerData = {
+    '1': {
+      name: 'PROMPT SPECIALIST',
+      role: 'AI Software Engineer · Prompt Architect',
+      img: '/images/speaker1.svg',
+      desc: 'Learn practical techniques in prompt engineering, LLM orchestration, and AI-powered coding assistants that elevate how modern developers design, write, and debug software.'
+    },
+    '2': {
+      name: 'SOLUTIONS ARCHITECT',
+      role: 'Full-Stack Developer · Solutions Engineer',
+      img: '/images/speaker2.svg',
+      desc: 'By integrating generative AI APIs and rapid prototyping toolchains, modern engineers can transform architectural blueprints into production-ready web apps in record time.'
+    },
+    '3': {
+      name: 'DEVSECOPS LEAD',
+      role: 'Software Architect · Engineering Lead',
+      img: '/images/speaker3.svg',
+      desc: 'From automated test synthesis and intelligent code reviews to CI/CD pipeline optimization, AI elevates engineering velocity without compromising software quality.'
+    },
+    '4': {
+      name: 'TECH ADVOCATE & EDUCATOR',
+      role: 'Technology Leader · Developer Advocate',
+      img: '/images/speaker4.svg',
+      desc: "The future belongs to engineers who leverage AI as a cognitive multiplier. Building an AI-ready developer portfolio is your key to thriving in tomorrow's tech industry."
+    }
+  };
+
+  const speakerTabBtns = document.querySelectorAll('.speaker-tab-btn');
+  const activeNameEl = document.getElementById('active-speaker-name');
+  const activeRoleEl = document.getElementById('active-speaker-role');
+  const activeImgEl = document.getElementById('active-speaker-img');
+  const activeDescEl = document.getElementById('active-speaker-desc');
+
+  speakerTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const spId = btn.getAttribute('data-speaker');
+      if (!speakerData[spId]) return;
+
+      speakerTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const data = speakerData[spId];
+      if (activeNameEl) activeNameEl.textContent = data.name;
+      if (activeRoleEl) activeRoleEl.textContent = data.role;
+      if (activeImgEl) activeImgEl.src = data.img;
+      if (activeDescEl) activeDescEl.textContent = data.desc;
+    });
+  });
 });
 

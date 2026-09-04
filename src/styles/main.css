@@ -3,39 +3,47 @@
    ========================================================================== */
 
 :root {
-  /* Colors - Deep Midnight Sky Palette */
-  --space-dark-0: #02030d;
-  --space-dark-1: #070b24;
+  /* Colors - Deep Midnight Cyber Palette */
+  --space-dark-0: #030014;
+  --space-dark-1: #070b28;
   --space-dark-2: #0f153a;
   --space-dark-3: #192054;
 
-  /* Dream & Starlight Cosmic Theme Palette */
+  /* Retro Arcade Cyber Synthwave Palette (Matching Poster) */
+  --arcade-pink: #ff2a85;
+  --arcade-magenta: #e024c3;
+  --arcade-purple: #9333ea;
+  --arcade-gold: #facc15;
+  --arcade-yellow: #fef08a;
+  --arcade-orange: #fb923c;
+  --arcade-brick: #c2410c;
+  --cyber-cyan: #00f0ff;
+  --cyber-blue: #38bdf8;
+  --cyber-glow-blue: #2563eb;
+  
   --purple-royal: #8b5cf6;
   --purple-glow: #a78bfa;
   --purple-deep: #6d28d9;
   --cyan-glow: #38bdf8;
   --cyan-light: #7dd3fc;
-  --blue-electric: #3b82f6;
-  --blue-deep: #1d4ed8;
-  --blue-accent: #60a5fa;
-  --pink-glow: #f472b6;
-  --pink-deep: #be123c;
-  --gold-glow: #fef08a;
+  --blue-electric: #00f0ff;
 
-  /* Text Colors — High Contrast Starlight Palette */
+  /* Text Colors */
   --text-pure: #ffffff;
   --text-main: #ffffff;
   --text-muted: #e2e8f0;
   --text-dim: #93c5fd;
 
   /* Glassmorphism System */
-  --glass-bg: rgba(7, 14, 42, 0.65);
-  --glass-bg-hover: rgba(12, 22, 60, 0.8);
-  --glass-border: rgba(56, 189, 248, 0.35);
-  --glass-border-hover: rgba(56, 189, 248, 0.7);
+  --glass-bg: rgba(7, 14, 42, 0.7);
+  --glass-bg-hover: rgba(12, 22, 60, 0.85);
+  --glass-border: rgba(0, 240, 255, 0.35);
+  --glass-border-hover: rgba(255, 42, 133, 0.8);
   --glass-blur: blur(28px);
 
   /* Fonts */
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-arcade: 'Silkscreen', monospace;
   --font-title: 'Outfit', sans-serif;
   --font-display: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
