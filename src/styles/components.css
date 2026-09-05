@@ -1309,10 +1309,13 @@
    -------------------------------------------------------------------------- */
 .horizontal-timeline-wrap {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   position: relative;
   margin-top: 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .timeline-track-line {
